@@ -151,7 +151,6 @@
   .header-wrapper {
     display: flex;
     flex-wrap: wrap;
-    /*nowrap*/
     justify-content: space-between;
 
     padding: 20px;
@@ -192,6 +191,10 @@
     gap: 30px;
   }
 
+  .nav-list.ru-mode {
+    gap: 20px;
+  }
+
 
   .header-nav link {
     line-height: 50px;
@@ -213,7 +216,7 @@
 
   }
 
-  .eng,
+  .en,
   .ru {
     display: block;
     padding: 0;
@@ -225,12 +228,16 @@
     transition: 0.5s;
   }
 
-  .eng:hover,
+  .en:hover,
   .ru:hover {
     color: var(--color-gold);
   }
 
   .hamburger {
+    display: none;
+  }
+
+  .blackout {
     display: none;
   }
 
@@ -481,6 +488,7 @@
     font-weight: 700;
     font-size: 28px;
     line-height: 56px;
+    text-align: center;
     margin: 0;
   }
 
@@ -511,7 +519,7 @@
     background: url("../img/contacts.jpg");
     background-size: auto 700px;
     background-position: center center;
-    padding: 60px 20px 195px 970px;
+    padding: 4.16% 1.38% 13.54% 67.36%;
 
   }
 
