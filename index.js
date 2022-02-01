@@ -59,12 +59,13 @@ portfolioButtons.forEach((currentButton, seasonIndex) => {
 
 
 function preloadImages() {
-    for(let season of seasons) {
+    seasons.forEach((season,seasonIndex) => {
         for(let i = 1; i <= 6; i++) {
-            const img = new Image();
-            img.src = `./img/${seasons[season]}/${i}.jpg`;
+            let img = new Image();
+            img.src = `./img/${seasons[seasonIndex]}/${i}.jpg`;
+            console.log(img.src);
         }
-    }
+    });
 }
 
 preloadImages();
@@ -86,8 +87,12 @@ function translatePage(event){
         currentElement.textContent = i18Obj[event.target.textContent][currentElement.getAttribute('data-translate')];
     }
 
-    (event.target.textContent === 'ru') ? document.querySelector('.nav-list').classList.add('ru-mode')
-                                        : document.querySelector('.nav-list').classList.remove('ru-mode');
+    (event.target.textContent === 'ru') ? (document.querySelector('.nav-list').classList.add('ru-mode'), 
+                                           document.querySelector('.en').classList.remove('active'),
+                                           document.querySelector('.ru').classList.add('active'))
+                                        : (document.querySelector('.nav-list').classList.remove('ru-mode'),
+                                           document.querySelector('.ru').classList.remove('active'),
+                                           document.querySelector('.en').classList.add('active'));
 
 }
 
@@ -96,4 +101,32 @@ engButton.addEventListener('click',translatePage);
 
 
 
+
+/*light theme*/
+const switcher = document.querySelector('.switch-theme-svg');
+let toggle = false;
+
+function switchTheme(){
+    toggle = Number(!toggle);
+    switcher.src = `./img/svg/switch-theme-button-${toggle}.svg`
+    
+    if(toggle){
+        document.documentElement.style.setProperty('--background-color', '#fff');
+        document.documentElement.style.setProperty('--button-text-color', '#000');
+        document.documentElement.style.setProperty('--button-dark-background-hover', '#bdae82');
+        document.documentElement.style.setProperty('--title-color', '#000');
+        document.documentElement.style.setProperty('--color-black', '#fff');
+        document.documentElement.style.setProperty('--color-white', '#000');
+    } else {
+        document.documentElement.style.setProperty('--background-color', '#000');
+        document.documentElement.style.setProperty('--button-text-color', '#bdae82');
+        document.documentElement.style.setProperty('--button-dark-background-hover', 'transparent');
+        document.documentElement.style.setProperty('--title-color', '#fff');
+        document.documentElement.style.setProperty('--color-black', '#000');
+        document.documentElement.style.setProperty('--color-white', '#fff');
+    }
+    toggle = Boolean(toggle);
+}
+
+switcher.addEventListener('click',switchTheme);
 

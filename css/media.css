@@ -121,7 +121,7 @@
   .line {
     width: 100%;
     height: 3px;
-    background: var(--color-white);
+    background: #fff;
     margin: 5px 0;
     z-index: 20;
     transition: all 0.3s ease-in-out;

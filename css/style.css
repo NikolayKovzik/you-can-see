@@ -8,8 +8,14 @@
   }
 
   :root {
+    --background-color: #000000;
+    --button-text-color: #bdae82;
+    --title-color: #bdae82;
+    --button-dark-background-hover: transparent;
+
     --color-gold: #bdae82;
     --color-white: #ffffff;
+    --color-black: #000000;
     --line-height40: 40px;
   }
 
@@ -18,8 +24,8 @@
     font-style: normal;
     font-size: 20px;
     font-weight: normal;
-    color: var(--color-white);
-    background-color: #000000;
+    color: #ffffff;
+    background-color: var(--background-color);
     /*  max-width: 1440px;
     margin: 0 auto;*/
   }
@@ -30,7 +36,7 @@
 
     margin: 0 auto;
     padding: 0;
-    background: #000000;
+    background: var(--background-color);
   }
 
 
@@ -61,7 +67,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    background-color: var(--color-gold);
+    background-color: var(--title-color);
 
   }
 
@@ -74,8 +80,8 @@
     font-size: 40px;
     line-height: 80px;
     text-align: center;
-    color: var(--color-gold);
-    background-color: #000000;
+    color: var(--title-color);
+    background-color: var(--background-color);
   }
 
 
@@ -100,24 +106,27 @@
     height: 55px;
     cursor: pointer;
 
-    color: var(--color-gold);
+    color: var(--button-text-color);
     font-family: inherit;
     text-align: center;
     line-height: var(--line-height40);
 
-    background-color: #000000;
+    background-color: transparent;
     border: 2px solid var(--color-gold);
     transition: 0.5s;
   }
 
-  .button-gold:hover, .button-dark:hover {
-    color: var(--color-white);
+
+  .button-gold:hover {
+      color: #ffffff;
+      background-color: #bdae82;
+
   }
 
 
   .link {
     line-height: 50px;
-    color: var(--color-white);
+    color: #ffffff;
     text-decoration: none;
     transition: 0.5s;
   }
@@ -220,12 +229,13 @@
   .ru {
     display: block;
     padding: 0;
-    color: var(--color-white);
+    color: #ffffff;
     font-weight: 700;
     font-family: inherit;
     background-color: transparent;
     border: 0;
     transition: 0.5s;
+    cursor: pointer;
   }
 
   .en:hover,
@@ -233,6 +243,24 @@
     color: var(--color-gold);
   }
 
+  .en.active,
+  .ru.active{
+    color: var(--color-gold);
+  }
+
+  .switch-theme {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .switch-theme-svg{
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .switch-theme-svg:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  }
   .hamburger {
     display: none;
   }
@@ -273,7 +301,7 @@
     font-weight: 700;
     font-size: 60px;
     line-height: 120px;
-    color: var(--color-white);
+    color: #ffffff;
     margin: 0px 0px 10px 0px;
   }
 
@@ -346,6 +374,7 @@
     text-align: center;
     font-weight: 700;
     line-height: var(--line-height40);
+    color:  var(--color-white);
   }
 
   .skill-item p {
@@ -355,6 +384,7 @@
     text-align: center;
     line-height: 36px;
     margin: 0 auto;
+    color:  var(--color-white);
   }
 
   /*end Skills section*/
@@ -380,6 +410,15 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 60px;
+  }
+
+  .portfolio-button.button-gold {
+    color: var(--color-black);
+  }
+
+  .portfolio-button.button-dark:hover {
+    background-color: var(--button-dark-background-hover);
+    color: #ffffff;
   }
 
   .image-wrapper {
@@ -481,6 +520,7 @@
     display: block;
     font-size: 18px;
     line-height: 36px;
+    color:  var(--color-white);
   }
 
   .card h3 {
@@ -490,6 +530,7 @@
     line-height: 56px;
     text-align: center;
     margin: 0;
+    color:  var(--color-white);
   }
 
   .card h4 {
@@ -499,6 +540,7 @@
     line-height: 48px;
     color: var(--color-gold);
     margin: 20px 0px;
+    color:  var(--color-white);
   }
 
   .card .button-gold {
@@ -531,7 +573,6 @@
   input,
   textarea {
     background: rgba(0, 0, 0, 0.5);
-    ;
     border: 2px solid var(--color-gold);
     width: 450px;
     font-family: inherit;
@@ -608,6 +649,7 @@
 
   /*start footer*/
   .footer {
+    background-color: #000000;
     height: 150px;
     display: flex;
     justify-content: space-between;
