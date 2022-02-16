@@ -1,221 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.ico" />
+    <title>Movie-app</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.ico"/>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/media.css">
 </head>
-
 <body>
-    <div class="blackout"></div>
-    <div class="wrapper">
-
-        <header class="header">
-            <div class="header-wrapper">
-                <div class="header-logo">
-                    <a href="/" class="header-logo-link">
-                        <img src="./img/svg/header-logo.svg" alt="header-logo" class="header-logo-pic svg-icon">
-                    </a>
-                </div>
-
-                <nav class="header-nav">
-                    <ul class="nav-list">
-
-                        <li class="nav-item"><a href="#skills" class="link" data-translate="skills">Skills</a></li>
-                        <li class="nav-item"><a href="#portfolio" class="link" data-translate="portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a href="#video" class="link" data-translate="video">Video</a></li>
-                        <li class="nav-item"><a href="#price" class="link" data-translate="price">Price</a></li>
-                        <li class="nav-item"><a href="#contacts" class="link" data-translate="contacts">Contacts</a></li>
-                    </ul>
-                    
-                </nav>
-
-                <div class="switch-lang">
-                    <button class="en active">en</button>
-                    <span class="slash">/</span>
-                    <button class="ru">ru</button>
-                </div>
-
-                <div class="switch-theme">
-                    <img src="./img/svg/switch-theme-button-0.svg" alt="switch-theme" class="switch-theme-svg">
-                </div>
-
-                <div class="hamburger">
-                    <div class="line line1"></div>
-                    <div class="line line2"></div>
-                    <div class="line line3"></div>
-                </div>
+    <header class="header">
+        <div class="wrapper header-wrapper">
+            <div class="header-logo">
+                <a href="index.html" class="header-logo-link">
+                    <svg class="icon svg-logo">
+                        <use xlink:href="./sprite.svg#logo"></use>
+                    </svg>
+                </a>
             </div>
-        </header>
-
-        <main class="main">
-
-            <section class="section" id="hero">
-                <div class="hero-wrapper">
-                    <h1 class="hero-title" data-translate="hero-title">
-                        Alexa Rise
-                    </h1>
-                    <p class="hero-description" data-translate="hero-text">
-                        Save sincere emotions, romantic feelings and happy moments of life together with professional
-                        photographer Alexa Rise
-                    </p>
-                    <button class="button-gold" data-translate="hire">
-                        Hire me
-                    </button>
-
-                </div>
-            </section>
-
-            <section class="section" id="skills">
-                <div class="title-wrapper">
-                    <h2 class="section-title" data-translate="skills">Skills</h2>
-                </div>
-                <div class="skills-items">
-                    <div class="skill-item">
-                        <h3 data-translate="skill-title-1">Digital photography</h3>
-                        <p data-translate="skill-text-1">High-quality photos in the studio and on the nature</p>
+            <h1 class="header-caption">Movie Search</h1>
+            <div class="form-wrapper">
+                <form class="search-form" id="form">
+                    <input class = "search-input" type="text" placeholder="search..."  autocomplete="off" autofocus>
+                    <input class= "submit-button" type="submit" value="search">
+                    <div class="cross-wrapper">
+                        <svg class="icon cross">
+                            <use xlink:href="./sprite.svg#cross"></use>
+                          </svg>
                     </div>
-                    <div class="skill-item">
-                        <h3 data-translate="skill-title-2">Video shooting</h3>
-                        <p data-translate="skill-text-2">Capture your moments so that they always stay with you</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3 data-translate="skill-title-3">Retouch</h3>
-                        <p data-translate="skill-text-3">I strive to make photography surpass reality</p>
-                    </div>
-                    <div class="skill-item">
-                        <h3 data-translate="skill-title-4">Audio</h3>
-                        <p data-translate="skill-text-4">Professional sounds recording for video, advertising, portfolio</p>
-                    </div>
-                </div>
-            </section>
+                </form>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main">
+        <div class="wrapper movie-wrapper">
+            <span class="no-results">
+                Nothing was found according to your request.
+            </span>
+        </div>
+        <div class="wrapper pagination">
+            <div class="previous-page">
+                <svg class="icon previous-page-svg">
+                    <use xlink:href="./sprite.svg#prev-page"></use>
+                  </svg>
+            </div>
+            <span class="current-page">1</span>
+            <div class="next-page ">
+                <svg class="icon next-page-svg">
+                    <use xlink:href="./sprite.svg#next-page"></use>
+                  </svg>
+            </div>
+        </div>
+    </main>
 
-            <section class="section" id="portfolio">
-                <div class="title-wrapper">
-                    <h2 class="section-title" data-translate="portfolio">Portfolio</h2>
-                </div>
-                <div class="button-wrapper">
-                    <button class="button-dark portfolio-button" data-season="winter" data-translate="winter">Winter</button>
-                    <button class="button-dark portfolio-button" data-season="spring" data-translate="spring">Spring</button>
-                    <button class="button-dark portfolio-button" data-season="summer" data-translate="summer">Summer</button>
-                    <button class="button-gold portfolio-button" data-season="autumn" data-translate="autumn">Autumn</button>
-                </div>
-                <div class="image-wrapper">
-                    <img class="portfolio-image" src="./img/autumn/1.jpg" alt="autumn image">
-                    <img class="portfolio-image" src="./img/autumn/2.jpg" alt="autumn image">
-                    <img class="portfolio-image" src="./img/autumn/3.jpg" alt="autumn image">
-                    <img class="portfolio-image" src="./img/autumn/4.jpg" alt="autumn image">
-                    <img class="portfolio-image" src="./img/autumn/5.jpg" alt="autumn image">
-                    <img class="portfolio-image" src="./img/autumn/6.jpg" alt="autumn image">
-                </div>
-            </section>
-
-            <section class="section" id="video">
-                <div class="title-wrapper">
-                    <h2 class="section-title" data-translate="video">Video</h2>
-                </div>
-                <div class="video-player">
-                    
-                    <button class="svg-icon"></button>
-                </div>
-            </section>
-
-            <section class="section" id="price">
-                <div class="title-wrapper">
-                    <h2 class="section-title" data-translate="price">Price</h2>
-                </div>
-                <div class="card-wrapper">
-                    <div class="card">
-                        <h3 data-translate="price-title-1">Standard</h3>
-                        <h4>500 $</h4>
-                        <span data-translate="price-description-1-span-1">One location</span>
-                        <span data-translate="price-description-1-span-2">120 photos in color</span>
-                        <span data-translate="price-description-1-span-3">12 photos in retouch</span>
-                        <span data-translate="price-description-1-span-4">Readiness 2-3 weeks</span>
-                        <span data-translate="price-description-1-span-5">Make up, visage</span>
-                        <button class="button-gold" data-translate="order">Order shooting</button>
-                    </div>
-                    <div class="card">
-                        <h3 data-translate="price-title-2">Premium</h3>
-                        <h4>700 $</h4>
-                        <span data-translate="price-description-2-span-1">One or two locations</span>
-                        <span data-translate="price-description-2-span-2">200 photos in color</span>
-                        <span data-translate="price-description-2-span-3">20 photos in retouch</span>
-                        <span data-translate="price-description-2-span-4">Readiness 1-2 weeks</span>
-                        <span data-translate="price-description-2-span-5">Make up, visage</span>
-                        <button class="button-gold" data-translate="order">Order shooting</button>
-                    </div>
-                    <div class="card">
-                        <h3 data-translate="price-title-3">Gold</h3>
-                        <h4>1000 $</h4>
-                        <span data-translate="price-description-3-span-1">Three locations or more</span>
-                        <span data-translate="price-description-3-span-2">300 photos in color</span>
-                        <span data-translate="price-description-3-span-3">50 photos in retouch</span>
-                        <span data-translate="price-description-3-span-4">Readiness 1 week</span>
-                        <span data-translate="price-description-3-span-5">Make up, visage, hairstyle</span>
-                        <button class="button-gold" data-translate="order">Order shooting</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="contacts">
-                <div class="contacts-wrapper">
-                    <h2 class="contacts-title" data-translate="contact-me">Contact me</h2>
-                    <form action="#" class="contact-form">
-                        <input name="email-iput" type="email" class="email-input" placeholder="E-mail" data-translate="e-mail">
-                        <input name="phone-input" type="tel" class="phone-input" placeholder="Phone" data-translate="phone">
-                        <textarea name="comment" id="label" cols="30" rows="10" placeholder="Message" data-translate="message"></textarea>
-                        <button class="button-gold contact-button" type="submit" data-translate="send-message">Send message</button>
-                    </form>
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="footer">
-            <div class="git-wrapper">
+    <footer class="footer">
+        <div class="wrapper footer-wrapper">
+            <div class="copyright-wrapper">
                 <span>©</span>
                 <span>2022</span>
-                <a href="https://github.com/NikolayKovzik" class="link">github</a>
             </div>
             <div class="rs-wrapper">
-                <a href="https://rs.school/js-stage0/" class="link">Rolling Scopes School</a>
+                <a href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
             </div>
-            <div class="icons-wrapper">
-                <ul class="link-list">
-                    <li>
-                        <a href="https://www.instagram.com/" class="svg-icon-inst">
-                            <img src="./img/svg/inst.svg"  alt="instagram">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/">
-                            <img src="./img/svg/fb.svg"  alt="facebook">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/">
-                            <img src="./img/svg/tw.svg"  alt="twitter">
-                        </a>
-                    </li>
-                    <li> 
-                        <a href="https://www.pinterest.com/">
-                            <img src="./img/svg/pin.svg"  alt="pinterest">
-                        </a>
-                    </li>
-                </ul>
+            <div class="gitlink-wrapper">
+                <a href="https://github.com/NikolayKovzik" target="_blank">github.com/NikolayKovzik</a>
             </div>
-        </footer>
-    </div>
-
-    <script type="module" src="./index.js"></script>
+        </div>
+    </footer>
+    
+    <script src="./app.js"></script>
 </body>
-
 </html>
