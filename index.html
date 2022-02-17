@@ -41,18 +41,25 @@
                 Nothing was found according to your request.
             </span>
         </div>
-        <div class="wrapper pagination">
-            <div class="previous-page">
-                <svg class="icon previous-page-svg">
-                    <use xlink:href="./sprite.svg#prev-page"></use>
-                  </svg>
+        <div class="wrapper pagination-wrapper">
+            <div class="pagination">
+                <div class="previous-page">
+                    <svg class="icon previous-page-svg">
+                        <use xlink:href="./sprite.svg#prev-page"></use>
+                    </svg>
+                </div>
+                <span class="current-page">1</span>
+                <div class="next-page ">
+                    <svg class="icon next-page-svg">
+                        <use xlink:href="./sprite.svg#next-page"></use>
+                    </svg>
+                </div>
             </div>
-            <span class="current-page">1</span>
-            <div class="next-page ">
-                <svg class="icon next-page-svg">
-                    <use xlink:href="./sprite.svg#next-page"></use>
-                  </svg>
-            </div>
+            <label class="switch-infinite-scroll">
+                <input class="checkbox-infinite-scroll" type="checkbox">
+                <span class="slider-infinite-scroll"></span>
+                <span class="label-infinite-scroll">Turn on infinite load</span>
+            </label>
         </div>
     </main>
 

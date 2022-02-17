@@ -285,11 +285,16 @@ a:hover{
 
 
 
-.pagination {
+
+.pagination{
     display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
+    margin: 0 auto;
+    gap: 10px;
+    padding-left: 11.36vw;
+}
+
+.pagination.invisible{
+    display: none;
 }
 
 .current-page {
@@ -317,6 +322,85 @@ a:hover{
     fill: var(--white)
 }
 
+.previous-page.invisible,
+.next-page.invisible {
+    display: none;
+}
+
+
+
+
+
+
+.switch-infinite-scroll {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 200px;
+    height: 65px;
+}
+
+.switch-infinite-scroll.pagination-is-invisible {
+    margin: 0 auto;
+}
+
+.switch-infinite-scroll input {
+    display: none;
+}
+
+.slider-infinite-scroll {
+    width: 60px;
+    height: 34px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--body-color);
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.label-infinite-scroll {
+    display: block;
+    line-height: 30px;
+    font-size: 25px;
+    color: var(--dark);
+    font-family: 'Yanone Kaffeesatz';
+}
+
+
+.slider-infinite-scroll:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .checkbox-infinite-scroll:checked + .slider-infinite-scroll {
+    background-color: var(--dark);
+  }
+  
+  .checkbox-infinite-scroll:focus + .slider-infinite-scroll {
+    box-shadow: 0 0 1px var(--dark);
+  }
+  
+  .checkbox-infinite-scroll:checked + .slider-infinite-scroll:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+
+
+
 
 
 
@@ -328,9 +412,12 @@ a:hover{
 
 
 .footer-wrapper {
+    height: 170px;
+    margin-bottom: 20px;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: 30px;
     color: var(--dark);
 }
 

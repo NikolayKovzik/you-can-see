@@ -1,21 +1,62 @@
-//const TMDB_API_KEY = 'api_key=9012a3cfced9963877aeb95eb5fa8f78';
+
+/*data download*/
+// const TMDB_API_KEY = 'api_key=9012a3cfced9963877aeb95eb5fa8f78';
 const TMDB_API_KEY = 'api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=spring';
 const TMDB_URL = 'https://api.themoviedb.org/3';
 const POP_URL = `${TMDB_URL}/discover/movie?sort_by=popularity.desc&${TMDB_API_KEY}`
 const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500/';
 const SEARCH_URL = `${TMDB_URL}/search/movie?${TMDB_API_KEY}`;
 const movieWrapper = document.querySelector('.movie-wrapper');
+/*search*/
 const searchForm = document.getElementById('form');
 const searchInput = document.querySelector('.search-input');
 const searchCross = document.querySelector('.cross-wrapper');
 const noResults = document.querySelector('.no-results');
-let numberPage = 1
+let queryPage = 1
 let isSearch = null;
 let searchInputValue = '';
+/*pagination*/
+const previousPageButton = document.querySelector('.previous-page');
+const nextPageButton = document.querySelector('.next-page');
+const currentPageCounter = document.querySelector('.current-page');
+let currentPage = 1;
+let currentURL = null;
+let totalPages = null;
+/*infinite load*/
+const footer = document.querySelector('.footer');
+const infiniteSwitcherSlider = document.querySelector('.slider-infinite-scroll');
+const infiniteSwitcherLabel = document.querySelector('.label-infinite-scroll');
+const infiniteSwitcher = document.querySelector('.switch-infinite-scroll');
+const paginationBlock = document.querySelector('.pagination');
+const checkboxInfiniteScroll = document.querySelector('.checkbox-infinite-scroll');
+const headerLogo = document.querySelector('.header-logo');
+
+let isFinite = true;
+
+getMovies(POP_URL);
+
 
 searchCross.addEventListener('click',() =>{
      searchInput.value = '';
 });
+
+// headerLogo.addEventListener('click',()=>{
+//     checkboxInfiniteScroll.checked=false;
+//     infiniteObserver.unobserve(footer);
+// })
+
+function clearWindow() {
+    movieWrapper.querySelectorAll('.movie').forEach((item)=>item.remove());
+}
+
+function smoothScrollIntoView() {
+    clearWindow();
+    searchForm.scrollIntoView();
+    getMovies(currentURL);
+    // searchForm.scrollIntoView({behavior : 'smooth'});
+    // setTimeout(()=>clearWindow(),1000);
+    // setTimeout(()=>getMovies(currentURL), 1000);
+}
 
 
 function getGenres(arr) {
@@ -73,24 +114,35 @@ function showMovies(data) {
 
 async function getMovies(url) {
     noResults.classList.remove('visible');
+    previousPageButton.classList.remove('invisible');
+    nextPageButton.classList.remove('invisible');
+    currentURL = url;
     let res = null;
     let data = null;
     let i = 0;
     do{
-        res = await fetch(`${url}&page=${numberPage}`);
+        res = await fetch(`${url}&page=${queryPage}`);
         data = await res.json();
-       // console.log(res);
+    // console.log(res);
         console.log(data);
-        console.log(data.page);
-        console.log(data.total_pages);
         await showMovies(data.results);
-        (++i<3) ? numberPage++ : numberPage;
+        (++i<3 && (data.page < data.total_pages)) ? queryPage++ : queryPage;
     }
     while(i<3 && (data.page < data.total_pages))
+    
+    totalPages = data.total_pages;
+
+    if(queryPage === totalPages || totalPages === 0){
+        nextPageButton.classList.add('invisible');
+    }
+
+    if(queryPage <= 3){
+        previousPageButton.classList.add('invisible')
+    }
 
     if(movieWrapper.querySelectorAll('.movie').length) {
-        (data.page < data.total_pages) ? infiniteObserver.observe(movieWrapper.querySelector('.movie:last-child'))
-                                       : (infiniteObserver.unobserve(movieWrapper.querySelector('.movie:last-child')));
+        (data.page < data.total_pages && !isFinite) ? infiniteObserver.observe(footer)
+                                                    : infiniteObserver.unobserve(footer);
     }
     else {
         noResults.classList.add('visible');
@@ -99,24 +151,49 @@ async function getMovies(url) {
 }
 
 
-function getNewCard() {
-    numberPage++
-	if (isSearch) {
-        if(searchInputValue)
-		    setTimeout(() => getMovies(`${SEARCH_URL}&query=${searchInputValue}`), 2000);
-        else
-            numberPage--;
-	} else {
-		setTimeout(() => getMovies(POP_URL), 2000);
-	}
-}
+/*infinite page*/
 
  const infiniteObserver = new IntersectionObserver(([entery], observer) => {
 		if (entery.isIntersecting) {
 			observer.unobserve(entery.target);
-			getNewCard();
+            if( !(queryPage === totalPages)){
+                queryPage++
+                currentPage++;
+                currentPageCounter.innerHTML = currentPage;
+                if (isSearch) {
+                    if(searchInputValue)
+                        getMovies(`${SEARCH_URL}&query=${searchInputValue}`);
+                    else
+                        queryPage--;
+                } else {
+                    getMovies(POP_URL)
+                }
+            }
 		}
+
 	},  {threshold: 1});
+
+
+infiniteSwitcherSlider.addEventListener('click', () => {
+    infiniteSwitcherLabel.innerHTML = `Turn ${(isFinite) ? (isFinite = false, 'off') : (isFinite = true, 'on')} infinite load`;
+    if(isFinite) {
+         paginationBlock.classList.remove('invisible');
+         infiniteSwitcher.classList.remove('pagination-is-invisible');
+         if(queryPage < totalPages) {
+            infiniteObserver.unobserve(footer);
+            queryPage -=2;
+            smoothScrollIntoView();
+         }
+    } else {
+        console.log(queryPage)
+        console.log(totalPages)
+        if(queryPage < totalPages){
+            setTimeout(()=>infiniteObserver.observe(footer), 1000);
+        }
+            paginationBlock.classList.add('invisible');
+            infiniteSwitcher.classList.add('pagination-is-invisible');
+    }
+})
 
 
 
@@ -128,8 +205,12 @@ searchForm.onsubmit = async (event) => {
     event.preventDefault();
     if(searchInput.value){
         searchInputValue = searchInput.value;
-        movieWrapper.querySelectorAll('.movie').forEach((item)=>item.remove());
-        numberPage = 1;
+        // checkboxInfiniteScroll.checked=false;
+        // infiniteObserver.unobserve(footer);
+        clearWindow();
+        queryPage = 1;
+        currentPage = 1;
+        currentPageCounter.innerHTML = 1;
         isSearch = true;
         getMovies(`${SEARCH_URL}&query=${searchInputValue}`);
     }
@@ -138,10 +219,35 @@ searchForm.onsubmit = async (event) => {
 
 
 
-// const previousPage = document.querySelector('.previous-page');
-// const nextPage = document.querySelector('.next-page');
-// const currentPage = document.querySelector('.current-page');
 
 
 
-getMovies(POP_URL);
+/*Pagination*/
+
+  previousPageButton.addEventListener('click', () => {
+    if(queryPage>=6){ 
+        queryPage -= 5 
+     } else if(queryPage == 5) {
+        queryPage -= 4 
+     } else if(queryPage == 4){
+        queryPage-= 3;
+     } else {
+         return;
+     }
+    currentPage--;
+    currentPageCounter.innerHTML = currentPage;
+    smoothScrollIntoView();
+  })
+  
+  nextPageButton.addEventListener('click', () => {
+    if(!(queryPage === totalPages)) {
+        queryPage++;
+        currentPage++;
+        currentPageCounter.innerHTML = currentPage;
+        smoothScrollIntoView();
+    }
+  })
+
+
+  
+  
