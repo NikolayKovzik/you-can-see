@@ -6,6 +6,9 @@ const SCALE_COEF = 30; //24
 const VELOCITY_COEF_X = 200; //273
 const VELOCITY_COEF_Y = 450;
 const ROTATION_COEF = 0.3;
+const ENEMY_SPAWN_SPEED = 1000;
+let allowBulletCreation = true;
+let allowEnemyCreation = true;
 const keyMonitor = {
   'a': {pressed: false},
   'd': {pressed: false},
@@ -18,6 +21,9 @@ const keyMonitor = {
   ' ': {pressed:false},
 }
 
+function random(min, max) {
+  return min + Math.random() * (max - min);
+}
 
 class Player {
   constructor() {
@@ -77,7 +83,7 @@ class Player {
 
 
 class Invader {
-  constructor() {
+  constructor({position}) {
       const invaderImage = new Image();
       invaderImage.src = './assets/img/invader.png';
       this.image = invaderImage;
@@ -85,8 +91,8 @@ class Invader {
       this.height = CANVAS.width/SCALE_COEF;
       this.cooldownTimer = 100;
       this.position = {
-        x: window.innerWidth/2 - this.width/2,
-        y: this.height,
+        x: position.x,
+        y: position.y,
       };
       this.velocity= {
         x: CANVAS.width/VELOCITY_COEF_X,
@@ -118,13 +124,15 @@ class PlayerBullet {
       this.width = CANVAS.width/(SCALE_COEF*2.5);
       this.height = CANVAS.width/(SCALE_COEF*2.5);
 
-      this.position = position;
+      this.position = {
+        x: position.x,
+        y: position.y,
+      };
       this.velocity = velocity;
-     // this.radius = 3;
     }
 
     draw() {
-      CANVAS_CONTEXT.drawImage(this.image, this.position.x - player.width/2, this.position.y - player.height/2 - 10 , this.width, this.height);
+      CANVAS_CONTEXT.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
       // CANVAS_CONTEXT.beginPath();
       // CANVAS_CONTEXT.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2);
       // CANVAS_CONTEXT.fillStyle = 'red';
@@ -139,18 +147,18 @@ class PlayerBullet {
     }
 }
 
-let cooldown = false;
+
 
 
 function animate() {
   requestAnimationFrame(animate);
   CANVAS_CONTEXT.clearRect(0, 0, CANVAS.width, CANVAS.height);
   player.update();
-  if(keyMonitor[' '].pressed && cooldown == false) {
-    cooldown = true;
+  if(keyMonitor[' '].pressed && allowBulletCreation == true) {
+    allowBulletCreation = false;
     playerBullets.push(new PlayerBullet({
       position: {
-        x: (player.position.x + player.width/2), 
+        x: (player.position.x + player.width/3), 
         y: (player.position.y - 5)
       }, 
       velocity: { 
@@ -158,20 +166,41 @@ function animate() {
         y: -5
       } 
     }))
-     setTimeout(() => {cooldown = false}, player.cooldownTimer)
+     setTimeout(() => {allowBulletCreation = true}, player.cooldownTimer)
     }
 
+
+    
   playerBullets.forEach((bullet,index)=> {
-    if(bullet.position.y /*+ bullet.radius*/ <=0) {
+    if(bullet.position.y <=0) {
       setTimeout(() => {playerBullets.splice(index, 1)},0); // ST - prevent projectiles flashing (not nessesary?.. need to check)
     } else {
       bullet.update();
     }
   })
-  console.log(playerBullets);
+
+
+
   invaders.forEach((invader,index)=> {
+    if(invader.position.y >= CANVAS.height) {
+      invaders.splice(index, 1);
+    } else {
       invader.update();
+    }
   })
+
+
+  
+  if( allowEnemyCreation == true) {
+    allowEnemyCreation = false;
+    invaders.push(new Invader({
+      position: {
+        x: random(0, CANVAS.width - player.width), 
+        y: 0
+      }
+    }))
+     setTimeout(() => {allowEnemyCreation = true}, ENEMY_SPAWN_SPEED)
+    }
 }
 
 
@@ -215,6 +244,6 @@ window.addEventListener('keyup', (event)=>{
 
 
 const player = new Player();
-const invaders = [new Invader];
+const invaders = [];
 const playerBullets = [];
 animate();
