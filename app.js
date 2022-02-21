@@ -4,6 +4,7 @@ CANVAS.width = window.innerWidth;
 CANVAS.height = window.innerHeight;
 const SCALE_COEF = 30; //24
 const VELOCITY_COEF_X = 200; //273
+const VELOCITY_COEF_Y = 450;
 const ROTATION_COEF = 0.3;
 const keyMonitor = {
   'a': {pressed: false},
@@ -23,6 +24,7 @@ class Player {
       const playerImage = new Image();
       playerImage.src = './assets/img/spaceship.png';
       this.image = playerImage;
+      
       this.width = CANVAS.width/SCALE_COEF;
       this.height = CANVAS.width/SCALE_COEF;
       this.rotation = 0;
@@ -33,7 +35,7 @@ class Player {
       };
       this.velocity= {
         x: CANVAS.width/VELOCITY_COEF_X,
-        y: CANVAS.width/VELOCITY_COEF_X,
+        y: CANVAS.height/VELOCITY_COEF_Y,
       };
     }
 
@@ -76,9 +78,9 @@ class Player {
 
 class Invader {
   constructor() {
-      const playerImage = new Image();
-      playerImage.src = './assets/img/invader.png';
-      this.image = playerImage;
+      const invaderImage = new Image();
+      invaderImage.src = './assets/img/invader.png';
+      this.image = invaderImage;
       this.width = CANVAS.width/SCALE_COEF;
       this.height = CANVAS.width/SCALE_COEF;
       this.cooldownTimer = 100;
@@ -88,7 +90,7 @@ class Invader {
       };
       this.velocity= {
         x: CANVAS.width/VELOCITY_COEF_X,
-        y: CANVAS.width/VELOCITY_COEF_X,
+        y: CANVAS.height/VELOCITY_COEF_Y,
       };
     }
 
@@ -99,8 +101,7 @@ class Invader {
 
     update(){
       if(true){
-        this.position.x -= this.velocity.x;
-        this.rotation = -ROTATION_COEF;
+        this.position.y += this.velocity.y;
       }
       this.draw();
     }
@@ -111,17 +112,24 @@ class Invader {
 
 class PlayerBullet {
     constructor({position, velocity}){
+      const bulletImage = new Image();
+      bulletImage.src = './assets/img/player-bullet.png';
+      this.image = bulletImage;
+      this.width = CANVAS.width/(SCALE_COEF*2.5);
+      this.height = CANVAS.width/(SCALE_COEF*2.5);
+
       this.position = position;
       this.velocity = velocity;
-      this.radius = 3;
+     // this.radius = 3;
     }
 
     draw() {
-      CANVAS_CONTEXT.beginPath();
-      CANVAS_CONTEXT.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2);
-      CANVAS_CONTEXT.fillStyle = 'red';
-      CANVAS_CONTEXT.fill();
-      CANVAS_CONTEXT.closePath();
+      CANVAS_CONTEXT.drawImage(this.image, this.position.x - player.width/2, this.position.y - player.height/2 - 10 , this.width, this.height);
+      // CANVAS_CONTEXT.beginPath();
+      // CANVAS_CONTEXT.arc(this.position.x, this.position.y, this.radius, 0, Math.PI*2);
+      // CANVAS_CONTEXT.fillStyle = 'red';
+      // CANVAS_CONTEXT.fill();
+      // CANVAS_CONTEXT.closePath();
     }
 
     update() {
@@ -154,13 +162,13 @@ function animate() {
     }
 
   playerBullets.forEach((bullet,index)=> {
-    if(bullet.position.y + bullet.radius <=0) {
+    if(bullet.position.y /*+ bullet.radius*/ <=0) {
       setTimeout(() => {playerBullets.splice(index, 1)},0); // ST - prevent projectiles flashing (not nessesary?.. need to check)
     } else {
       bullet.update();
     }
   })
-
+  console.log(playerBullets);
   invaders.forEach((invader,index)=> {
       invader.update();
   })
