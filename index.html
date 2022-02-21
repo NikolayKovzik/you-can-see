@@ -4,80 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie-app</title>
     <link rel="shortcut icon" type="image/x-icon" href="./img/icon.ico"/>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
+    <title>Space Invaders</title>
 </head>
 <body>
-    <header class="header">
-        <div class="wrapper header-wrapper">
-            <div class="header-logo">
-                <a href="index.html" class="header-logo-link">
-                    <svg class="icon svg-logo">
-                        <use xlink:href="./sprite.svg#logo"></use>
-                    </svg>
-                </a>
-            </div>
-            <h1 class="header-caption">Movie Search</h1>
-            <div class="form-wrapper">
-                <form class="search-form" id="form">
-                    <input class = "search-input" type="text" placeholder="search..."  autocomplete="off" autofocus>
-                    <input class= "submit-button" type="submit" value="search">
-                    <div class="cross-wrapper">
-                        <svg class="icon cross">
-                            <use xlink:href="./sprite.svg#cross"></use>
-                          </svg>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </header>
-    
-    <main class="main">
-        <div class="wrapper movie-wrapper">
-            <span class="no-results">
-                Nothing was found according to your request.
-            </span>
-        </div>
-        <div class="wrapper pagination-wrapper">
-            <div class="pagination">
-                <div class="previous-page">
-                    <svg class="icon previous-page-svg">
-                        <use xlink:href="./sprite.svg#prev-page"></use>
-                    </svg>
-                </div>
-                <span class="current-page">1</span>
-                <div class="next-page ">
-                    <svg class="icon next-page-svg">
-                        <use xlink:href="./sprite.svg#next-page"></use>
-                    </svg>
-                </div>
-            </div>
-            <label class="switch-infinite-scroll">
-                <input class="checkbox-infinite-scroll" type="checkbox">
-                <span class="slider-infinite-scroll"></span>
-                <span class="label-infinite-scroll">Turn on infinite load</span>
-            </label>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="wrapper footer-wrapper">
-            <div class="copyright-wrapper">
-                <span>©</span>
-                <span>2022</span>
-            </div>
-            <div class="rs-wrapper">
-                <a href="https://rs.school/js-stage0/" target="_blank">Rolling Scopes School</a>
-            </div>
-            <div class="gitlink-wrapper">
-                <a href="https://github.com/NikolayKovzik" target="_blank">github.com/NikolayKovzik</a>
-            </div>
-        </div>
-    </footer>
-    
+    <canvas  id="canvas"></canvas>
+    <!-- <canvas  id="canvas" width="500" height="500"></canvas> -->
     <script src="./app.js"></script>
 </body>
 </html>
