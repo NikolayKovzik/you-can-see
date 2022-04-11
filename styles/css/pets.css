@@ -1,0 +1,390 @@
+@font-face {
+  font-family: "Georgia";
+  src: url("../../assets/fonts/Georgia.eot");
+  src: url("../../assets/fonts/Georgia.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/Georgia.woff2") format("woff2"), url("../../assets/fonts/Georgia.woff") format("woff"), url("../../assets/fonts/Georgia.ttf") format("truetype");
+  font-style: "normal";
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/Arial-ItalicMT.eot");
+  src: url("../../assets/fonts/Arial-ItalicMT.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/Arial-ItalicMT.woff2") format("woff2"), url("../../assets/fonts/Arial-ItalicMT.woff") format("woff"), url("../../assets/fonts/Arial-ItalicMT.ttf") format("truetype");
+  font-style: "italic";
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arial";
+  src: url("../../assets/fonts/ArialMT.eot");
+  src: url("../../assets/fonts/ArialMT.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/ArialMT.woff2") format("woff2"), url("../../assets/fonts/ArialMT.woff") format("woff"), url("../../assets/fonts/ArialMT.ttf") format("truetype");
+  font-style: "normal";
+  font-weight: normal;
+  font-display: swap;
+}
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo,
+button,
+.card {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  display: block;
+  padding: 0px;
+  background-color: #fff;
+}
+
+body {
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+section, header, footer {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+img, a {
+  display: block;
+}
+
+.logo__title {
+  font-family: "Georgia";
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.logo__subtitle {
+  font-family: "Arial";
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #292929;
+}
+
+.menu__link {
+  font-family: "Arial";
+  font-size: 15px;
+  line-height: 24px;
+  color: #545454;
+}
+
+.title {
+  font-family: "Georgia";
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+
+.pets__title {
+  text-align: center;
+}
+
+.button {
+  font-family: "Georgia";
+  font-size: 17px;
+  line-height: 22px;
+  color: #292929;
+  letter-spacing: 0.06em;
+}
+
+.pets__button-arrow {
+  font-family: "Georgia";
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #292929;
+}
+
+.card__name {
+  font-family: "Georgia";
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+.footer__content {
+  font-family: "Georgia";
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+}
+
+.footer__title {
+  font-family: "Georgia";
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+}
+
+.start-screen__button {
+  background-color: #F1CDB3;
+  margin-top: 42px;
+  width: 207px;
+  transition: 0.5s;
+}
+.start-screen__button:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+
+/* add button primary & secondary*/
+.button {
+  height: 52px;
+  border-radius: 180px;
+  border: 3px solid #F1CDB3;
+}
+
+.card__button {
+  width: 187px;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+
+.credit-card {
+  cursor: pointer;
+  border: 0px;
+}
+.credit-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 43px;
+  width: 349px;
+  border-radius: 9px;
+  background-color: #F1CDB3;
+  transition: 0.5s;
+}
+.credit-card__link:hover {
+  background-color: #FDDCC4;
+}
+.credit-card__icon {
+  width: 30px;
+  height: 23px;
+}
+.credit-card__card-number {
+  height: 23px;
+}
+
+.pets__button {
+  background-color: #F1CDB3;
+  width: 261px;
+  transition: 0.5s;
+}
+.pets__button:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+
+.pets__button-arrow,
+.pets__page {
+  width: 52px;
+  height: 52px;
+  border-radius: 100px;
+  border: 3px solid #F1CDB3;
+}
+
+.pets__button-arrow {
+  transition: 0.5s;
+}
+.pets__button-arrow--active:hover {
+  border-color: #FDDCC4;
+  background-color: #FDDCC4;
+}
+.pets__button-arrow--inactive {
+  border: 3px solid #CDCDCD;
+  color: #CDCDCD;
+  cursor: default;
+}
+
+.pets__page {
+  cursor: default;
+  background-color: #F1CDB3;
+}
+
+.footer {
+  background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding-top: 30px;
+  background-color: #FFFFFF;
+  opacity: 0.9;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.header .menu__list {
+  display: flex;
+  gap: 35px;
+}
+.header .menu__list-item--active:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #F1CDB3;
+}
+.header .logo {
+  height: 100%;
+}
+.header .logo__subtitle {
+  margin-top: 10px;
+}
+
+.pets {
+  height: 1462px;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  background-color: #F6F6F6;
+}
+.pets__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+.pets__title {
+  width: 400px;
+}
+.pets__items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 40px;
+}
+.pets .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: #FAFAFA;
+}
+.pets .card:hover {
+  background-color: #FFFFFF;
+}
+.pets .card:hover .card__button {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+.pets__pagination {
+  display: flex;
+  width: 340px;
+  gap: 20px;
+}
+
+.footer {
+  height: 350px;
+  padding-top: 40px;
+}
+.footer__content {
+  display: flex;
+  justify-content: start;
+  gap: 160px;
+  height: 100%;
+  padding-top: 16px;
+  background-image: url(../../assets/images/footer-puppy.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 278px;
+}
+.footer__contacts svg {
+  width: 40px;
+  height: 32px;
+}
+.footer__locations {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  width: 302px;
+}
+.footer__locations svg {
+  width: 22px;
+  height: 32px;
+}
+.footer__phone-link, .footer__mail-link, .footer__boston-location, .footer__london-location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer__boston-street, .footer__london-street {
+  width: 260px;
+}
+.footer__mail-link {
+  width: 251px;
+}
+.footer__mail {
+  width: 191px;
+}
+.footer__phone-link {
+  width: 239px;
+}
+.footer__phone {
+  width: 179px;
+}
+
+/*# sourceMappingURL=pets.css.map */

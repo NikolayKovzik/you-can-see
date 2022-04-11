@@ -1,0 +1,121 @@
+.logo__title {
+    font-family: "Georgia";
+    font-size: 32px;
+    line-height: 35px; //110%;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+}
+
+.logo__subtitle {
+    font-family: "Arial";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: $color-light-xl;
+}
+
+.menu__link {
+    font-family: "Arial";
+    font-size: 15px;
+    line-height: 24px; //160%;
+    color: $color-light-s;
+}
+
+.start-screen__title {
+    font-family: "Georgia";
+    font-size: 44px;
+    line-height: 57px; //130%;
+    color: $color-light-xl;
+}
+
+.start-screen__description {
+    font-family: "Arial";
+    font-size: 15px;
+    line-height: 24px; //160%;
+    color: $color-dark-s;
+}
+
+.button {
+    font-family: "Georgia";
+    font-size: 17px;
+    line-height: 22px; //130%;
+    color: $color-dark-3xl;
+    letter-spacing: 0.06em;
+}
+
+.title {
+    font-family: "Georgia";
+    font-size: 35px;
+    line-height: 45px; // 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.about__info {
+    font-family: "Arial";
+    font-size: 15px;
+    line-height: 24px; // 160%;
+    color: $color-dark-xl;
+}
+
+.pets__title,
+.help__title {
+    text-align: center;
+}
+
+.card__name {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.06em;
+}
+
+.help__item-caption {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px; //115%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.donation__subtitle {
+    font-family: "Georgia";
+    font-size: 15px;
+    line-height: 17px; //110%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.credit-card__card-number {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px; //115%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.donation__info {
+    font-family: "Arial";
+    font-style: italic;
+    font-size: 12px;
+    line-height: 18px; //or 150%
+    color: $color-dark-m;
+}
+
+.footer__content {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px; //115%;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+}
+
+.footer__title {
+    font-family: "Georgia";
+    font-size: 35px;
+    line-height: 45px; //130%;
+    letter-spacing: 0.06em;
+    color: $color-light-xl;
+}

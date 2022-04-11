@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelter</title>
+    <link rel="stylesheet" href="../styles/css/normalize.css">
+    <link rel="stylesheet" href="../styles/css/pets.css">
+</head>
+
+<body>
+    <header class="header container">
+        <div class="header__content">
+            <div class="logo" onclick="window.location.href='./index.html'">
+                <h1 class="logo__title">Cozy House</h1>
+                <p class="logo__subtitle">Shelter for pets in Boston</p>
+            </div>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="./index.html">About the shelter</a>
+                    </li>
+                    <li class="menu__list-item menu__list-item--active">
+                        <a class="menu__link">Our pets</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="./index.html#help">Help the shelter</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#footer">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main container">
+        <section class="pets">
+            <div class="pets__content">
+                <h3 class="title pets__title">Our friends who are&nbsp;looking&nbsp;for a house</h3>
+                <div class="pets__items-wrapper">
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-katrine.png" alt="dog named Katrine">
+                        <p class="card__name">Katrine</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-jennifer.png" alt="dog named Jennifer">
+                        <p class="card__name">Jennifer</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-woody.png" alt="dog named Woody">
+                        <p class="card__name">Woody</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-sophia.png" alt="dog named Sophia">
+                        <p class="card__name">Sophia</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-timmy.png" alt="dog named Timmy">
+                        <p class="card__name">Timmy</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-charly.png" alt="dog named Charly">
+                        <p class="card__name">Charly</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-scarlet.png" alt="dog named Scarlet">
+                        <p class="card__name">Scarlet</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                    <div class="card">
+                        <img class="card__img" src="../assets/images/pets-freddie.png" alt="dog named Freddie">
+                        <p class="card__name">Freddie</p>
+                        <button class="button card__button">Learn more</button>
+                    </div>
+                </div>
+                <div class="pets__pagination">
+                    <button class="pets__button-arrow pets__button-arrow--inactive">&lt;&lt;</button>
+                    <button class="pets__button-arrow pets__button-arrow--inactive">&lt;</button>
+                    <button class="pets__page">1</button>
+                    <button class="pets__button-arrow pets__button-arrow--active">&gt;</button>
+                    <button class="pets__button-arrow pets__button-arrow--active">&gt;&gt;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer container" id="footer">
+        <div class="footer__content">
+            <div class="footer__contacts">
+                <h3 class="footer__title">For questions and&nbsp;suggestions</h3>
+                <a class="footer__mail-link" href="mailto:mail@shelter.com">
+                    <svg class="footer__mail-icon">
+                        <use xlink:href="../assets/svg/sprite.svg#mail"></use>
+                    </svg>
+                    <p class="footer__mail">email@shelter.com</p>
+                </a>
+                <a class="footer__phone-link">
+                    <svg class="footer__phone-icon">
+                        <use xlink:href="../assets/svg/sprite.svg#phone"></use>
+                    </svg>
+                    <p class="footer__phone">+13&nbsp;674&nbsp;567&nbsp;75&nbsp;54</p>
+                </a>
+            </div>
+            <div class="footer__locations">
+                <h3 class="footer__title">We are waiting for your visit</h3>
+                <a class="footer__boston-location">
+                    <svg class="footer__boston-icon">
+                        <use xlink:href="../assets/svg/sprite.svg#pin"></use>
+                    </svg>
+                    <p class="footer__boston-street">1 Central Street, Boston (entrance from the store)</p>
+                </a>
+                <a class="footer__london-location">
+                    <svg class="footer__london-icon">
+                        <use xlink:href="../assets/svg/sprite.svg#pin"></use>
+                    </svg>
+                    <p class="footer__london-street">18 South Park, London</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

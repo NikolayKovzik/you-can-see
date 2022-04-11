@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.logo,
+button,
+.card {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    display: block;
+    padding: 0px;
+    background-color: #fff;
+}
+
+body {
+    position: relative;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+section, header, footer{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.is-hidden {
+    display: none;
+}
+ 
+img,a {
+    display: block;
+}

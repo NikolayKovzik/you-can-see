@@ -1,0 +1,76 @@
+.logo__title {
+    font-family: "Georgia";
+    font-size: 32px;
+    line-height: 35px; //110%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.logo__subtitle {
+    font-family: "Arial";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: $color-dark-3xl;
+}
+
+.menu__link {
+    font-family: "Arial";
+    font-size: 15px;
+    line-height: 24px; //160%;
+    color: $color-dark-l;
+}
+
+.title {
+    font-family: "Georgia";
+    font-size: 35px;
+    line-height: 45px; // 130%;
+    letter-spacing: 0.06em;
+    color: $color-dark-l;
+}
+
+.pets__title {
+    text-align: center;
+}
+
+.button {
+    font-family: "Georgia";
+    font-size: 17px;
+    line-height: 22px; //130%;
+    color: $color-dark-3xl;
+    letter-spacing: 0.06em;
+}
+
+.pets__button-arrow {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px; // 115% 
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: $color-dark-3xl;
+}
+
+.card__name {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.06em;
+}
+
+.footer__content {
+    font-family: "Georgia";
+    font-size: 20px;
+    line-height: 23px; //115%;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+}
+
+.footer__title {
+    font-family: "Georgia";
+    font-size: 35px;
+    line-height: 45px; //130%;
+    letter-spacing: 0.06em;
+    color: $color-light-xl;
+}
