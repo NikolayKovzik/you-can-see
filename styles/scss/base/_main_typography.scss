@@ -1,9 +1,18 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/placeholders";
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
 .logo__title {
     font-family: "Georgia";
     font-size: 32px;
     line-height: 35px; //110%;
     letter-spacing: 0.06em;
-    color: $color-primary;
+    color: var.$color-primary;
 }
 
 .logo__subtitle {
@@ -12,51 +21,46 @@
     line-height: 15px;
     letter-spacing: 0.1em;
     text-align: center;
-    color: $color-light-xl;
+    color: var.$color-light-xl;
 }
 
 .menu__link {
-    font-family: "Arial";
-    font-size: 15px;
-    line-height: 24px; //160%;
-    color: $color-light-s;
+    @extend %Arial15;
+    color: var.$color-dark-s;
+    &:hover {
+        transition: 0.5s;
+        color: var.$color-light-s;
+    }
 }
 
 .start-screen__title {
     font-family: "Georgia";
     font-size: 44px;
     line-height: 57px; //130%;
-    color: $color-light-xl;
+    color: var.$color-light-xl;
 }
 
 .start-screen__description {
-    font-family: "Arial";
-    font-size: 15px;
-    line-height: 24px; //160%;
-    color: $color-dark-s;
+    @extend %Arial15;
+    color: var.$color-dark-s;
 }
 
 .button {
     font-family: "Georgia";
     font-size: 17px;
     line-height: 22px; //130%;
-    color: $color-dark-3xl;
+    color: var.$color-dark-3xl;
     letter-spacing: 0.06em;
 }
 
 .title {
-    font-family: "Georgia";
-    font-size: 35px;
-    line-height: 45px; // 130%;
-    letter-spacing: 0.06em;
-    color: $color-dark-l;
+    @extend %Georgia35;
+    color: var.$color-dark-l;
 }
 
 .about__info {
-    font-family: "Arial";
-    font-size: 15px;
-    line-height: 24px; // 160%;
-    color: $color-dark-xl;
+    @extend %Arial15;
+    color: var.$color-dark-xl;
 }
 
 .pets__title,
@@ -65,19 +69,14 @@
 }
 
 .card__name {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px;
+    @extend %Georgia20;
     text-align: center;
-    letter-spacing: 0.06em;
+    color: var.$color-dark-l;
 }
 
 .help__item-caption {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px; //115%;
-    letter-spacing: 0.06em;
-    color: $color-dark-l;
+    @extend %Georgia20;
+    color: var.$color-dark-l;
 }
 
 .donation__subtitle {
@@ -85,15 +84,12 @@
     font-size: 15px;
     line-height: 17px; //110%;
     letter-spacing: 0.06em;
-    color: $color-dark-l;
+    color: var.$color-dark-l;
 }
 
 .credit-card__card-number {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px; //115%;
-    letter-spacing: 0.06em;
-    color: $color-dark-l;
+    @extend %Georgia20;
+    color: var.$color-dark-l;
 }
 
 .donation__info {
@@ -101,21 +97,15 @@
     font-style: italic;
     font-size: 12px;
     line-height: 18px; //or 150%
-    color: $color-dark-m;
+    color: var.$color-dark-m;
 }
 
 .footer__content {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px; //115%;
-    letter-spacing: 0.06em;
-    color: $color-primary;
+    @extend %Georgia20;
+    color: var.$color-primary;
 }
 
 .footer__title {
-    font-family: "Georgia";
-    font-size: 35px;
-    line-height: 45px; //130%;
-    letter-spacing: 0.06em;
-    color: $color-light-xl;
+    @extend %Georgia35;
+    color: var.$color-light-xl;
 }

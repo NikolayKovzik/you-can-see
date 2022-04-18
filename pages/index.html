@@ -82,7 +82,11 @@
             <div class="pets__content">
                 <h3 class="title pets__title">Our friends who are&nbsp;looking&nbsp;for a house</h3>
                 <div class="slider">
-                    <button class="pets__button-arrow pets__button-arrow--active">&#8592;</button>
+                    <button class="pets__button-arrow pets__button-arrow--active">
+                        <svg class="pets__icon-arrow">
+                            <use xlink:href="../assets/svg/sprite.svg#Arrow-left"></use>
+                        </svg>
+                    </button>
                     <div class="pets__items-wrapper">
                         <div class="card">
                             <img class="card__img" src="../assets/images/pets-katrine.png" alt="dog named Katrine">
@@ -100,7 +104,11 @@
                             <button class="button card__button">Learn more</button>
                         </div>
                     </div>
-                    <button class="pets__button-arrow pets__button-arrow--active">&#8594;</button>
+                    <button class="pets__button-arrow pets__button-arrow--active">
+                        <svg class="pets__icon-arrow">
+                            <use xlink:href="../assets/svg/sprite.svg#Arrow-right"></use>
+                        </svg>
+                    </button>
                 </div>
                 <button class="button pets__button" onclick="window.location.href='./pets.html'">Get to know the
                     rest</button>
@@ -156,7 +164,7 @@
                         <svg class="help__svg-image">
                             <use xlink:href="../assets/svg/sprite.svg#collars-or-leashes"></use>
                         </svg>
-                        <p class="help__item-caption">Collars / Leashes</p>
+                        <p class="help__item-caption">Collars / leashes</p>
                     </div>
                     <div class="help__item">
                         <svg class="help__svg-image">
@@ -169,18 +177,18 @@
         </section>
         <section class="donation">
             <div class="donation__inner">
-                <img class="donation__img" alt="decor-img" src="../assets/images/donation-dog.jpg" aria-hidden="true">
+                <img class="donation__img" alt="decor-img" src="../assets/images/donation-dog.png" aria-hidden="true">
                 <div class="donation__content">
                     <h3 class="title donation__title">You can also make a donation</h3>
                     <p class="donation__subtitle">Name of the bank / Type of bank account</p>
-                    <button class="credit-card">
-                        <a class="credit-card__link">
+                    <div class="credit-card">
+                        <a class="credit-card__link" href="#!">
                             <svg class="credit-card__icon">
                                 <use xlink:href="../assets/svg/sprite.svg#credit-card"></use>
                             </svg>
-                            <p class="credit-card__card-number">8380&nbsp;2880&nbsp;8028&nbsp;8791&nbsp;7435</p>
+                            <span class="credit-card__card-number">8380&nbsp;2880&nbsp;8028&nbsp;8791&nbsp;7435</span>
                         </a>
-                    </button>
+                    </div>
                     <p class="donation__info">
                         Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Maecenas a ipsum at libero sagittis dignissim sed ac diam.
@@ -201,7 +209,7 @@
                     </svg>
                     <p class="footer__mail">email@shelter.com</p>
                 </a>
-                <a class="footer__phone-link">
+                <a class="footer__phone-link" href="tel:+79001111111">
                     <svg class="footer__phone-icon">
                         <use xlink:href="../assets/svg/sprite.svg#phone"></use>
                     </svg>
@@ -210,13 +218,13 @@
             </div>
             <div class="footer__locations">
                 <h3 class="footer__title">We are waiting for your visit</h3>
-                <a class="footer__boston-location">
+                <a class="footer__boston-location" href="https://goo.gl/maps/zBg6fj6Rf8C8sUMa7" target="_blank">
                     <svg class="footer__boston-icon">
                         <use xlink:href="../assets/svg/sprite.svg#pin"></use>
                     </svg>
                     <p class="footer__boston-street">1 Central Street, Boston (entrance from the store)</p>
                 </a>
-                <a class="footer__london-location">
+                <a class="footer__london-location" href="https://goo.gl/maps/F5T4DatksUWieUBa7" target="_blank">
                     <svg class="footer__london-icon">
                         <use xlink:href="../assets/svg/sprite.svg#pin"></use>
                     </svg>

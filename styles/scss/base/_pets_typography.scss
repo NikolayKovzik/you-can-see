@@ -1,9 +1,18 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/placeholders";
+
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+
 .logo__title {
     font-family: "Georgia";
     font-size: 32px;
     line-height: 35px; //110%;
     letter-spacing: 0.06em;
-    color: $color-dark-l;
+    color: var.$color-dark-l;
 }
 
 .logo__subtitle {
@@ -12,22 +21,21 @@
     line-height: 15px;
     letter-spacing: 0.1em;
     text-align: center;
-    color: $color-dark-3xl;
+    color: var.$color-dark-3xl;
 }
 
 .menu__link {
-    font-family: "Arial";
-    font-size: 15px;
-    line-height: 24px; //160%;
-    color: $color-dark-l;
+    @extend %Arial15;
+    color: var.$color-dark-l;
+    &:hover{
+        transition: 0.5s;
+        color: var.$color-dark-3xl;
+    }
 }
 
 .title {
-    font-family: "Georgia";
-    font-size: 35px;
-    line-height: 45px; // 130%;
-    letter-spacing: 0.06em;
-    color: $color-dark-l;
+    @extend %Georgia35;
+    color: var.$color-dark-l;
 }
 
 .pets__title {
@@ -38,39 +46,28 @@
     font-family: "Georgia";
     font-size: 17px;
     line-height: 22px; //130%;
-    color: $color-dark-3xl;
+    color: var.$color-dark-3xl;
     letter-spacing: 0.06em;
 }
 
 .pets__button-arrow {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px; // 115% 
+    @extend %Georgia20;
     text-align: center;
-    letter-spacing: 0.06em;
-    color: $color-dark-3xl;
+    color: var.$color-dark-3xl;
 }
 
 .card__name {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px;
+    @extend %Georgia20;
     text-align: center;
-    letter-spacing: 0.06em;
+    color: var.$color-dark-l;
 }
 
 .footer__content {
-    font-family: "Georgia";
-    font-size: 20px;
-    line-height: 23px; //115%;
-    letter-spacing: 0.06em;
-    color: $color-primary;
+    @extend %Georgia20;
+    color: var.$color-primary;
 }
 
 .footer__title {
-    font-family: "Georgia";
-    font-size: 35px;
-    line-height: 45px; //130%;
-    letter-spacing: 0.06em;
-    color: $color-light-xl;
+    @extend %Georgia35;
+    color: var.$color-light-xl;
 }

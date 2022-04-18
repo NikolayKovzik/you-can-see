@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as mix;
+
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -56,12 +58,16 @@ body {
 section, header, footer{
     padding-left: 40px;
     padding-right: 40px;
+    @include mix.desktop1279 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
 .is-hidden {
     display: none;
 }
  
-img,a {
+img,a,span {
     display: block;
 }

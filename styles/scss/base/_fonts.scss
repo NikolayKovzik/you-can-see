@@ -1,5 +1,5 @@
-@import '../abstracts/mixins';
+@use '../abstracts/mixins' as mix;
 
-@include font-face("Georgia","Georgia","normal");
-@include font-face("Arial","Arial-ItalicMT","italic");
-@include font-face("Arial","ArialMT","normal");
+@include mix.font-face("Georgia","Georgia","normal");
+@include mix.font-face("Arial","Arial-ItalicMT","italic");
+@include mix.font-face("Arial","ArialMT","normal");

@@ -11,3 +11,22 @@
         font-display: swap;
     }
 }
+
+@mixin desktop1279 {
+    @media (max-width: (1279px)) {
+        @content;
+    }
+}
+
+
+@mixin tablet767 {
+    @media (max-width: (768px)) {
+        @content;
+    }
+}
+
+@mixin mobile319 {
+    @media (max-width: (576px)) {
+        @content;
+    }
+}

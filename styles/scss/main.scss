@@ -1,12 +1,10 @@
-@import "base/fonts";
-@import "base/basic";
-@import "abstracts/variables";
-@import "base/main_typography";
-@import "components/buttons";
-
-%gradient {
-    background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
-}
+@use "abstracts/variables" as var;
+@use "abstracts/mixins" as mix;
+@use "abstracts/placeholders";
+@use "base/basic";
+@use "base/fonts";
+@use "base/main_typography";
+@use "components/buttons";
 
 .header {
     position: absolute;
@@ -21,28 +19,31 @@
         width: 100%;
         height: 60px;
     }
+    @include mix.desktop1279 {
+        padding-top: 30px;
+    }
+}
 
-    .menu {
-        &__list {
-            display: flex;
-            gap: 35px;
-        }
-        &__list-item {
-            &--active:after {
-                content: "";
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: $color-primary;
-            }
+.menu {
+    &__list {
+        display: flex;
+        gap: 35px;
+    }
+    &__list-item {
+        &--active:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var.$color-primary;
         }
     }
+}
 
-    .logo {
-        height: 100%;
-        &__subtitle {
-            margin-top: 10px;
-        }
+.logo {
+    height: 100%;
+    &__subtitle {
+        margin-top: 10px;
     }
 }
 
@@ -53,20 +54,35 @@
     &__inner {
         height: 100%;
         padding-top: 180px;
+        padding-bottom: 243px;
         background-image: url(../../assets/images/start-screen-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
+        @include mix.desktop1279 {
+            // background-position-x: 59%;
+            // background-position-y: 100%; //571px;
+            // background-position-x: 106%;
+            padding-top: 150px;
+            background-size: 568px;
+        }
     }
 
     &__content {
         width: 460px;
         height: 322px;
         margin-top: 163px;
+        @include mix.desktop1279 {
+            margin: 0 auto;
+        }
     }
 
     &__title {
         width: 310px;
         margin-bottom: 42px;
+    }
+
+    @include mix.desktop1279 {
+        height: 1165px;
     }
 }
 
@@ -79,6 +95,11 @@
         justify-content: center;
         align-items: center;
         gap: 120px;
+        @include mix.desktop1279 {
+            flex-direction: column-reverse;
+            gap: 80px;
+            margin: 0 auto;
+        }
     }
     &__content {
         width: 430px;
@@ -91,26 +112,23 @@
     &__info:first-of-type {
         margin-bottom: 25px;
     }
+
+    @include mix.desktop1279 {
+        height: 1048px;
+    }
 }
 
 .pets {
     height: 877px;
     padding-top: 80px;
     padding-bottom: 100px;
-    background-color: $color-light-l;
+    background-color: var.$color-light-l;
     &__content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 60px;
-
-        .slider {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
     }
 
     &__title {
@@ -120,23 +138,44 @@
     &__items-wrapper {
         display: flex;
         gap: 90px;
+        @include mix.desktop1279 {
+            gap: 40px;
+        }
     }
 
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // height: 435px;
-        gap: 30px;
-        transition: 0.5s;
-        background-color: $color-light-s;
+    &__icon-arrow {
+        width: 14px;
+        height: 6px;
+    }
+}
 
-        &:hover {
-            background-color: $color-light-xl;
-            .card__button {
-                background-color: $color-primary-light;
-                border-color: $color-primary-light;
-            }
+.slider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // height: 435px;
+    gap: 30px;
+    transition: 0.5s;
+    background-color: var.$color-light-s;
+
+    &:hover {
+        background-color: var.$color-light-xl;
+        .card__button {
+            background-color: var.$color-primary-light;
+            border-color: var.$color-primary-light;
+        }
+    }
+
+    @include mix.desktop1279 {
+        &:nth-child(3){
+            display: none;
         }
     }
 }
@@ -166,6 +205,11 @@
         row-gap: 55px;
         height: 281px;
         width: 1030px;
+        @include mix.desktop1279 {
+            width: 630px;
+            height: 449px;
+            column-gap: 60px;
+        }
     }
 
     &__item {
@@ -174,11 +218,18 @@
         align-items: center;
         justify-content: space-between;
         height: 113px;
+        @include mix.desktop1279 {
+            width: 170px;
+        }
     }
 
     &__svg-image {
         width: 60px;
         height: 60px;
+    }
+
+    @include mix.desktop1279 {
+        height: 779px;
     }
 }
 
@@ -186,7 +237,7 @@
     height: 462px;
     padding-top: 80px;
     padding-bottom: 100px;
-    background-color: $color-light-l;
+    background-color: var.$color-light-l;
     &__inner {
         width: 915px;
         height: 100%;
@@ -194,10 +245,17 @@
         display: flex;
         align-items: center;
         gap: 30px;
+        @include mix.desktop1279 {
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            width: 100%;
+            gap: 60px;
+        }
     }
 
     &__content {
-        height: 100%;
+        height: 282px;
+        width: 380px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -205,6 +263,38 @@
 
     &__title {
         width: 300px;
+    }
+
+    @include mix.desktop1279 {
+        height: 783px;
+    }
+}
+
+.credit-card {
+    cursor: pointer;
+    border: 0px;
+    width: 349px;
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        height: 43px;
+        border-radius: 9px;
+        background-color: var.$color-primary;
+        transition: 0.5s;
+
+        &:hover {
+            background-color: var.$color-primary-light;
+        }
+    }
+
+    &__icon {
+        width: 30px;
+        height: 23px;
+    }
+    &__card-number {
+        height: 23px;
     }
 }
 
@@ -222,6 +312,12 @@
         background-image: url(../../assets/images/footer-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
+        @include mix.desktop1279 {
+            background-position: center bottom;
+            padding-top: 0px;
+            gap: 60px;
+            justify-content: center;
+        }
     }
 
     &__contacts {
@@ -253,6 +349,17 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: var.$color-primary;
+        &:hover {
+            color: var.$color-light-s;
+            svg {
+                fill: var.$color-light-s;
+            }
+        }
+    }
+
+    svg {
+        fill: #f1cdb3;
     }
 
     &__boston-street,
@@ -274,5 +381,10 @@
 
     &__phone {
         width: 179px;
+    }
+
+    @include mix.desktop1279 {
+        height: 639px;
+        padding-top: 30px;
     }
 }

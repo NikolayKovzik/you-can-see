@@ -1,63 +1,43 @@
+@use "../abstracts/variables" as var ;
+@use "../abstracts/mixins" as mix;
+
 .start-screen__button {
-    background-color: $color-primary;
+    background-color: var.$color-primary;
     margin-top: 42px;
     width: 207px;
     transition: 0.5s;
     &:hover {
-        background-color: $color-primary-light;
-        border-color: $color-primary-light;
+        background-color: var.$color-primary-light;
+        border-color: var.$color-primary-light;
+    }
+    @include mix.desktop1279 {
+        margin: 42px auto;
     }
 }
-/* add button primary & secondary*/
+
 
 .button {
     height: 52px;
     border-radius: 180px;
-    border: 3px solid $color-primary;
+    border: 2px solid var.$color-primary;
 }
 
 .card__button {
     width: 187px;
     margin-bottom: 30px;
     transition: 0.5s;
-}
-
-.credit-card {
-    cursor: pointer;
-    border: 0px;
-    &__link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        height: 43px;
-        width: 349px;
-        border-radius: 9px;
-        background-color: $color-primary;
-        transition: 0.5s;
-        
-        &:hover {
-            background-color: $color-primary-light;
-        }
-    }
-    &__icon {
-        width: 30px;
-        height: 23px;
-    }
-    &__card-number {
-        height: 23px;
-    }
+    background-color: var.$color-light-s;
 }
 
 
 
 .pets__button {
-    background-color: $color-primary;
+    background-color: var.$color-primary;
     width: 261px;
     transition: 0.5s;
     &:hover {
-        background-color: $color-primary-light;
-        border-color: $color-primary-light;
+        background-color: var.$color-primary-light;
+        border-color: var.$color-primary-light;
     }
 }
 
@@ -66,23 +46,24 @@
     width: 52px;
     height: 52px;
     border-radius: 100px;
-    border: 3px solid $color-primary;
+    border: 2px solid var.$color-primary;
 }
 
 .pets__button-arrow {
     transition: 0.5s;
+    background-color: var.$color-light-l;
     &--active:hover {
-        border-color: $color-primary-light;
-        background-color: $color-primary-light;
+        border-color: var.$color-primary-light;
+        background-color: var.$color-primary-light;
     }
     &--inactive {
-        border: 3px solid $color-dark-s;
-        color: $color-dark-s;
+        border: 2px solid var.$color-dark-s;
+        color: var.$color-dark-s;
         cursor: default;
     }
 }
 
 .pets__page {
     cursor: default;
-    background-color: $color-primary;
+    background-color: var.$color-primary;
 }

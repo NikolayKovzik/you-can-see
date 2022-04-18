@@ -1,12 +1,10 @@
-@import "base/fonts";
-@import "base/basic";
-@import "abstracts/variables";
-@import "base/pets_typography";
-@import "components/buttons";
-
-%gradient {
-    background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
-}
+@use "abstracts/variables" as var;
+@use "abstracts/mixins" as mix;
+@use "abstracts/placeholders";
+@use "base/basic";
+@use "base/fonts";
+@use "base/pets_typography";
+@use "components/buttons";
 
 .header {
     position: fixed;
@@ -14,7 +12,8 @@
     right: 0;
     margin: 0 auto;
     padding-top: 30px;
-    background-color: $color-light-xl;
+    padding-bottom: 30px;
+    background-color: var.$color-light-xl;
     opacity: 0.9;
     &__content {
         display: flex;
@@ -23,28 +22,28 @@
         width: 100%;
         height: 60px;
     }
+}
 
-    .menu {
-        &__list {
-            display: flex;
-            gap: 35px;
-        }
-        &__list-item{
-            &--active:after{  
-                content: "";
-                display: block;
-                width: 100%;
-                height: 3px;
-                background-color: $color-primary;
-            }
+.menu {
+    &__list {
+        display: flex;
+        gap: 35px;
+    }
+    &__list-item{
+        &--active:after{  
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var.$color-primary;
         }
     }
+}
 
-    .logo {
-        height: 100%;
-        &__subtitle {
-            margin-top: 10px;
-        }
+.logo {
+    height: 100%;
+    &__subtitle {
+        margin-top: 10px;
     }
 }
 
@@ -52,13 +51,18 @@
     height: 1462px;
     padding-top: 200px;
     padding-bottom: 100px;
-    background-color: $color-light-l;
+    background-color: var.$color-light-l;
     &__content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 60px;
+        @include mix.desktop1279 {
+            width: 708px;
+            margin: 0px auto;
+            gap: 30px;
+        }
     }
 
     &__title {
@@ -70,21 +74,8 @@
         flex-wrap: wrap;
         row-gap: 30px;
         column-gap: 40px;
-    }
-
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // height: 435px;
-        gap: 30px;
-        background-color: $color-light-s;
-        &:hover{
-            background-color: $color-light-xl;
-            .card__button {
-                background-color: $color-primary-light;
-                border-color: $color-primary-light;
-            }
+        @include mix.desktop1279 {
+            justify-content: center;
         }
     }
 
@@ -92,6 +83,37 @@
         display: flex;
         width: 340px;
         gap: 20px;
+        @include mix.desktop1279 {
+            margin-top: 10px;
+        }
+    }
+
+    @include mix.desktop1279 {
+        height: 1853px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // height: 435px;
+    // width: 270px;
+    gap: 30px;
+    background-color: var.$color-light-s;
+    &:hover{
+        background-color: var.$color-light-xl;
+        .card__button {
+            background-color: var.$color-primary-light;
+            border-color: var.$color-primary-light;
+        }
+    }
+
+    @include mix.desktop1279 {
+        &:nth-child(7),
+        &:nth-child(8){
+            display: none;
+        }
     }
 }
 
@@ -109,6 +131,12 @@
         background-image: url(../../assets/images/footer-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
+        @include mix.desktop1279 {
+            background-position: center bottom;
+            padding-top: 0px;
+            gap: 60px;
+            justify-content: center;
+        }
     }
 
     &__contacts {
@@ -140,6 +168,17 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        color: var.$color-primary;
+        &:hover{
+            color: var.$color-light-s;
+            svg{
+                fill:  var.$color-light-s;
+            }
+        }
+    }
+
+    svg {
+        fill:#F1CDB3;
     }
 
     &__boston-street,
@@ -161,5 +200,10 @@
 
     &__phone {
         width: 179px;
+    }
+
+    @include mix.desktop1279 {
+        height: 639px;
+        padding-top: 30px;
     }
 }
