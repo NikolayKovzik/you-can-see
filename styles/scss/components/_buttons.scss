@@ -10,7 +10,7 @@
         background-color: var.$color-primary-light;
         border-color: var.$color-primary-light;
     }
-    @include mix.desktop1279 {
+    @include mix.laptop {
         margin: 42px auto;
     }
 }
@@ -42,12 +42,18 @@
 }
 
 .pets__button-arrow,
-.pets__page {
+.pets__page,
+.modal-window__close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 52px;
     height: 52px;
     border-radius: 100px;
+    background-color: transparent;
     border: 2px solid var.$color-primary;
 }
+
 
 .pets__button-arrow {
     transition: 0.5s;

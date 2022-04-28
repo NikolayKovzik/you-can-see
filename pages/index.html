@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <div class="blackout"></div>
+    <div class="modal-window__wrapper"></div>
     <header class="header container">
         <div class="header__content">
             <div class="logo">
@@ -36,10 +38,37 @@
         </div>
     </header>
     <main class="main container">
+        <div class="hamburger hamburger--main">
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+        </div>
+        <div class="burger-menu">
+            <div class="logo">
+                <h1 class="logo__title">Cozy House</h1>
+                <p class="logo__subtitle">Shelter for pets in Boston</p>
+            </div>
+            <nav class="burger-menu__content">
+                <ul class="burger-menu__list">
+                    <li class="burger-menu__list-item burger-menu__list-item--active">
+                        <a class="burger-menu__link">About the shelter</a>
+                    </li>
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="./pets.html">Our pets</a>
+                    </li>
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="#help">Help the shelter</a>
+                    </li>
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="#footer">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <section class="start-screen">
             <div class="start-screen__inner">
                 <div class="start-screen__content">
-                    <h2 class="start-screen__title">Not only people need a house</h2>
+                    <h2 class="start-screen__title">Not only people need&nbsp;a&nbsp;house</h2>
                     <p class="start-screen__description">
                         We offer to give a chance to a little and nice puppy with an extremely wide and open heart.
                         He or she will love you more than anybody else in the world, you will see!
@@ -53,7 +82,7 @@
             <div class="about__inner">
                 <img class="about__img" alt="decor-img" src="../assets/images/about-pets.png" aria-hidden="true">
                 <div class="about__content">
-                    <h3 class="title about__title">About the shelter “Cozy House”</h3>
+                    <h3 class="title about__title">About the shelter “Cozy&nbsp;House”</h3>
                     <p class="about__info">
                         Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20%
                         of them will
@@ -82,29 +111,15 @@
             <div class="pets__content">
                 <h3 class="title pets__title">Our friends who are&nbsp;looking&nbsp;for a house</h3>
                 <div class="slider">
-                    <button class="pets__button-arrow pets__button-arrow--active">
+                    <button class="pets__button-arrow left-button pets__button-arrow--active">
                         <svg class="pets__icon-arrow">
                             <use xlink:href="../assets/svg/sprite.svg#Arrow-left"></use>
                         </svg>
                     </button>
                     <div class="pets__items-wrapper">
-                        <div class="card">
-                            <img class="card__img" src="../assets/images/pets-katrine.png" alt="dog named Katrine">
-                            <p class="card__name">Katrine</p>
-                            <button class="button card__button">Learn more</button>
-                        </div>
-                        <div class="card">
-                            <img class="card__img" src="../assets/images/pets-jennifer.png" alt="dog named Jennifer">
-                            <p class="card__name">Jennifer</p>
-                            <button class="button card__button">Learn more</button>
-                        </div>
-                        <div class="card">
-                            <img class="card__img" src="../assets/images/pets-woody.png" alt="dog named Woody">
-                            <p class="card__name">Woody</p>
-                            <button class="button card__button">Learn more</button>
-                        </div>
+                        <div class="pets__items"></div>
                     </div>
-                    <button class="pets__button-arrow pets__button-arrow--active">
+                    <button class="pets__button-arrow right-button pets__button-arrow--active">
                         <svg class="pets__icon-arrow">
                             <use xlink:href="../assets/svg/sprite.svg#Arrow-right"></use>
                         </svg>
@@ -179,7 +194,7 @@
             <div class="donation__inner">
                 <img class="donation__img" alt="decor-img" src="../assets/images/donation-dog.png" aria-hidden="true">
                 <div class="donation__content">
-                    <h3 class="title donation__title">You can also make a donation</h3>
+                    <h3 class="title donation__title">You can also make&nbsp;a&nbsp;donation</h3>
                     <p class="donation__subtitle">Name of the bank / Type of bank account</p>
                     <div class="credit-card">
                         <a class="credit-card__link" href="#!">
@@ -202,7 +217,7 @@
     <footer class="footer container" id="footer">
         <div class="footer__content">
             <div class="footer__contacts">
-                <h3 class="footer__title">For questions and&nbsp;suggestions</h3>
+                <h3 class="footer__title">For questions and suggestions</h3>
                 <a class="footer__mail-link" href="mailto:mail@shelter.com">
                     <svg class="footer__mail-icon">
                         <use xlink:href="../assets/svg/sprite.svg#mail"></use>
@@ -233,6 +248,13 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="../scripts/main.js"></script>
+    <script type="module" src="../scripts/slider.js"></script>
+    <script>
+        // window.onload = function () {
+        //     alert("Оставьте пожалуйста контакт для обратной связи, cпасибо)");
+        // }
+    </script>
 </body>
 
 </html>

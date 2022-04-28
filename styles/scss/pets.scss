@@ -4,7 +4,10 @@
 @use "base/basic";
 @use "base/fonts";
 @use "base/pets_typography";
+@use "components/burger_menu";
 @use "components/buttons";
+@use "components/hamburger";
+@use "components/modal_window";
 
 .header {
     position: fixed;
@@ -15,12 +18,16 @@
     padding-bottom: 30px;
     background-color: var.$color-light-xl;
     opacity: 0.9;
+    z-index: 5;
     &__content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         height: 60px;
+        @include mix.tablet {
+            padding-right: 43px;
+        }
     }
 }
 
@@ -29,8 +36,8 @@
         display: flex;
         gap: 35px;
     }
-    &__list-item{
-        &--active:after{  
+    &__list-item {
+        &--active:after {
             content: "";
             display: block;
             width: 100%;
@@ -38,10 +45,12 @@
             background-color: var.$color-primary;
         }
     }
+    @include mix.tablet {
+        display: none;
+    }
 }
 
 .logo {
-    height: 100%;
     &__subtitle {
         margin-top: 10px;
     }
@@ -53,28 +62,37 @@
     padding-bottom: 100px;
     background-color: var.$color-light-l;
     &__content {
+        width: 1200px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 60px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             width: 708px;
             margin: 0px auto;
             gap: 30px;
+        }
+
+        @include mix.tablet {
+            width: 300px;
+            gap: 42px;
         }
     }
 
     &__title {
         width: 400px;
+        @include mix.tablet {
+            width: 300px;
+        }
     }
 
-    &__items-wrapper {
+    &__cards-wrapper {
         display: flex;
         flex-wrap: wrap;
         row-gap: 30px;
         column-gap: 40px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             justify-content: center;
         }
     }
@@ -83,13 +101,24 @@
         display: flex;
         width: 340px;
         gap: 20px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             margin-top: 10px;
+        }
+
+        @include mix.tablet {
+            width: 300px;
+            margin: 0 auto;
+            gap: 10px;
         }
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         height: 1853px;
+    }
+
+    @include mix.tablet {
+        height: 1769px;
+        padding-top: 161px;
     }
 }
 
@@ -101,7 +130,7 @@
     // width: 270px;
     gap: 30px;
     background-color: var.$color-light-s;
-    &:hover{
+    &:hover {
         background-color: var.$color-light-xl;
         .card__button {
             background-color: var.$color-primary-light;
@@ -109,9 +138,19 @@
         }
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         &:nth-child(7),
-        &:nth-child(8){
+        &:nth-child(8) {
+            display: none;
+        }
+    }
+
+    @include mix.tablet {
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8) {
             display: none;
         }
     }
@@ -131,11 +170,19 @@
         background-image: url(../../assets/images/footer-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             background-position: center bottom;
             padding-top: 0px;
             gap: 60px;
             justify-content: center;
+        }
+
+        @include mix.tablet {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 40px;
+            background-size: 260px;
         }
     }
 
@@ -143,10 +190,14 @@
         display: flex;
         flex-direction: column;
         gap: 40px;
-        width: 278px;
+        width: 280px;
         svg {
             width: 40px;
             height: 32px;
+        }
+
+        @include mix.tablet {
+            align-items: center;
         }
     }
 
@@ -159,6 +210,16 @@
             width: 22px;
             height: 32px;
         }
+        @include mix.tablet {
+            align-items: center;
+            gap: 39px;
+        }
+    }
+
+    &__locations &__title {
+        @include mix.tablet {
+            width: 270px;
+        }
     }
 
     &__phone-link,
@@ -169,21 +230,26 @@
         align-items: center;
         justify-content: space-between;
         color: var.$color-primary;
-        &:hover{
+        &:hover {
             color: var.$color-light-s;
-            svg{
-                fill:  var.$color-light-s;
+            svg {
+                fill: var.$color-light-s;
             }
         }
     }
 
     svg {
-        fill:#F1CDB3;
+        fill: #f1cdb3;
     }
 
     &__boston-street,
     &__london-street {
         width: 260px;
+    }
+
+    &__boston-location,
+    &__london-location {
+        width: 100%;
     }
 
     &__mail-link {
@@ -202,8 +268,12 @@
         width: 179px;
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         height: 639px;
         padding-top: 30px;
+    }
+
+    @include mix.tablet {
+        height: 809px;
     }
 }

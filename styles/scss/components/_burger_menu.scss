@@ -1,0 +1,83 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.burger-menu {
+    display: none;
+    z-index: 15;
+    overflow-y: scroll;
+    .logo {
+        margin: 30px auto 158px 10px;
+    }
+
+    .logo__subtitle {
+        text-align: left;
+        padding-left: 3px;
+    }
+
+    @include mix.tablet {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        height: 100%;
+        width: 320px;
+        background-color: var.$color-dark-3xl;
+        transition: 0.5s all;
+    }
+
+    &.visible {
+        @include mix.tablet {
+            right: 0vw;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__list-item {
+        &--active:after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var.$color-primary;
+        }
+    }
+
+    &__link {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 51px;
+        color: var.$color-dark-s;
+        transition: 0.5s;
+        &:hover {
+            color: var.$color-light-s;
+        }
+    }
+
+    &--white {
+        background-color: var.$color-light-s;
+        .burger-menu__link {
+            color: var.$color-dark-l;
+            &:hover{
+                transition: 0.5s;
+                color: var.$color-dark-3xl;
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #e1e2e1;
+    }
+}

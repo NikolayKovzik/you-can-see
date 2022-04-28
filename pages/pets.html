@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div class="blackout"></div>
     <header class="header container">
         <div class="header__content">
             <div class="logo" onclick="window.location.href='./index.html'">
@@ -35,58 +36,45 @@
             </nav>
         </div>
     </header>
+    <div class="modal-window__wrapper"></div>
     <main class="main container">
+        <div class="hamburger hamburger--pets">
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+            <div class="hamburger__line"></div>
+        </div>
+        <div class="burger-menu burger-menu--white">
+            <div class="logo" onclick="window.location.href='./index.html'">
+                <h1 class="logo__title">Cozy House</h1>
+                <p class="logo__subtitle">Shelter for pets in Boston</p>
+            </div>
+            <nav class="burger-menu__content">
+                <ul class="burger-menu__list">
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="./index.html">About the shelter</a>
+                    </li>
+                    <li class="burger-menu__list-item burger-menu__list-item--active">
+                        <a class="burger-menu__link">Our pets</a>
+                    </li>
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="./index.html#help">Help the shelter</a>
+                    </li>
+                    <li class="burger-menu__list-item">
+                        <a class="burger-menu__link" href="#footer">Contacts</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <section class="pets">
             <div class="pets__content">
                 <h3 class="title pets__title">Our friends who are&nbsp;looking&nbsp;for a house</h3>
-                <div class="pets__items-wrapper">
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-katrine.png" alt="dog named Katrine">
-                        <p class="card__name">Katrine</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-jennifer.png" alt="dog named Jennifer">
-                        <p class="card__name">Jennifer</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-woody.png" alt="dog named Woody">
-                        <p class="card__name">Woody</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-sophia.png" alt="dog named Sophia">
-                        <p class="card__name">Sophia</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-timmy.png" alt="dog named Timmy">
-                        <p class="card__name">Timmy</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-charly.png" alt="dog named Charly">
-                        <p class="card__name">Charly</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-scarlet.png" alt="dog named Scarlet">
-                        <p class="card__name">Scarlet</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                    <div class="card">
-                        <img class="card__img" src="../assets/images/pets-freddie.png" alt="dog named Freddie">
-                        <p class="card__name">Freddie</p>
-                        <button class="button card__button">Learn more</button>
-                    </div>
-                </div>
+                <div class="pets__cards-wrapper"></div>
                 <div class="pets__pagination">
-                    <button class="pets__button-arrow pets__button-arrow--inactive">&lt;&lt;</button>
-                    <button class="pets__button-arrow pets__button-arrow--inactive">&lt;</button>
+                    <button class="pets__button-arrow start-button pets__button-arrow--inactive">&lt;&lt;</button>
+                    <button class="pets__button-arrow left-button pets__button-arrow--inactive">&lt;</button>
                     <button class="pets__page">1</button>
-                    <button class="pets__button-arrow pets__button-arrow--active">&gt;</button>
-                    <button class="pets__button-arrow pets__button-arrow--active">&gt;&gt;</button>
+                    <button class="pets__button-arrow right-button pets__button-arrow--active">&gt;</button>
+                    <button class="pets__button-arrow end-button pets__button-arrow--active">&gt;&gt;</button>
                 </div>
             </div>
         </section>
@@ -94,7 +82,7 @@
     <footer class="footer container" id="footer">
         <div class="footer__content">
             <div class="footer__contacts">
-                <h3 class="footer__title">For questions and&nbsp;suggestions</h3>
+                <h3 class="footer__title">For questions and suggestions</h3>
                 <a class="footer__mail-link" href="mailto:mail@shelter.com">
                     <svg class="footer__mail-icon">
                         <use xlink:href="../assets/svg/sprite.svg#mail"></use>
@@ -125,6 +113,8 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="../scripts/main.js"></script>
+    <script type="module" src="../scripts/pagination.js"></script>
 </body>
 
 </html>

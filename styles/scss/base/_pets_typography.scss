@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
 @use "../abstracts/placeholders";
 
 h1,
@@ -36,6 +37,10 @@ h3 {
 .title {
     @extend %Georgia35;
     color: var.$color-dark-l;
+    @include mix.tablet {
+        font-size: 25px;
+        line-height: 32px;
+    }
 }
 
 .pets__title {
@@ -70,4 +75,9 @@ h3 {
 .footer__title {
     @extend %Georgia35;
     color: var.$color-light-xl;
+    @include mix.tablet {
+        font-size: 25px;
+        line-height: 32px;
+        text-align: center;
+    }
 }

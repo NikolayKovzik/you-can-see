@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
 @use "../abstracts/placeholders";
 
 h1,
@@ -38,11 +39,20 @@ h3 {
     font-size: 44px;
     line-height: 57px; //130%;
     color: var.$color-light-xl;
+    @include mix.tablet {
+        font-size: 25px;
+        line-height: 32px;
+        text-align: center;
+        letter-spacing: 0.06em;
+    }
 }
 
 .start-screen__description {
     @extend %Arial15;
     color: var.$color-dark-s;
+    @include mix.tablet {
+        text-align: center;
+    }
 }
 
 .button {
@@ -56,11 +66,19 @@ h3 {
 .title {
     @extend %Georgia35;
     color: var.$color-dark-l;
+    @include mix.tablet {
+        text-align: center;
+        font-size: 25px;
+        line-height: 32px; //130%;
+    }
 }
 
 .about__info {
     @extend %Arial15;
     color: var.$color-dark-xl;
+    @include mix.tablet {
+        text-align: justify;
+    }
 }
 
 .pets__title,
@@ -77,6 +95,10 @@ h3 {
 .help__item-caption {
     @extend %Georgia20;
     color: var.$color-dark-l;
+    @include mix.tablet {
+        font-size: 15px;
+        line-height: 17px;
+    }
 }
 
 .donation__subtitle {
@@ -85,11 +107,21 @@ h3 {
     line-height: 17px; //110%;
     letter-spacing: 0.06em;
     color: var.$color-dark-l;
+    @include mix.tablet {
+        font-size: 15px;
+        line-height: 24px;
+        letter-spacing: 0;
+        text-align: center;
+    }
 }
 
 .credit-card__card-number {
     @extend %Georgia20;
     color: var.$color-dark-l;
+    @include mix.tablet {
+        font-size: 15px;
+        line-height: 17px;
+    }
 }
 
 .donation__info {
@@ -98,6 +130,12 @@ h3 {
     font-size: 12px;
     line-height: 18px; //or 150%
     color: var.$color-dark-m;
+    @include mix.tablet {
+        font-size: 12px;
+        line-height: 18px;
+        align-items: center;
+        text-align: justify;
+    }
 }
 
 .footer__content {
@@ -108,4 +146,9 @@ h3 {
 .footer__title {
     @extend %Georgia35;
     color: var.$color-light-xl;
+    @include mix.tablet {
+        text-align: center;
+        font-size: 25px;
+        line-height: 32px; //130%;
+    }
 }

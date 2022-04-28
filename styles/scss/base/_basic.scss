@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
 
 html {
     box-sizing: border-box;
@@ -27,7 +28,6 @@ a:focus {
     cursor: pointer;
 }
 
-
 .logo,
 button,
 .card {
@@ -48,6 +48,19 @@ button {
 
 body {
     position: relative;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: var.$color-primary;
+    }
+}
+
+body.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
 
 .container {
@@ -55,19 +68,45 @@ body {
     margin: 0 auto;
 }
 
-section, header, footer{
+section,
+header,
+footer {
     padding-left: 40px;
     padding-right: 40px;
-    @include mix.desktop1279 {
+    @include mix.laptop {
         padding-left: 30px;
         padding-right: 30px;
+    }
+    @include mix.tablet {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
 .is-hidden {
     display: none;
 }
- 
-img,a,span {
+
+.blackout {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 10;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+.blackout.visible {
+    width: 100%;
+    height: 100%;
+    background-color: var.$color-blackout;
+}
+
+img,
+a,
+span {
     display: block;
 }

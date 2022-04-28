@@ -4,7 +4,10 @@
 @use "base/basic";
 @use "base/fonts";
 @use "base/main_typography";
+@use "components/burger_menu";
 @use "components/buttons";
+@use "components/hamburger";
+@use "components/modal_window";
 
 .header {
     position: absolute;
@@ -12,14 +15,18 @@
     right: 0;
     margin: 0 auto;
     padding-top: 60px;
+    z-index: 5;
     &__content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         height: 60px;
+        @include mix.tablet {
+            padding-right: 43px;
+        }
     }
-    @include mix.desktop1279 {
+    @include mix.laptop {
         padding-top: 30px;
     }
 }
@@ -38,10 +45,12 @@
             background-color: var.$color-primary;
         }
     }
+    @include mix.tablet {
+        display: none;
+    }
 }
 
 .logo {
-    height: 100%;
     &__subtitle {
         margin-top: 10px;
     }
@@ -58,12 +67,16 @@
         background-image: url(../../assets/images/start-screen-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             // background-position-x: 59%;
             // background-position-y: 100%; //571px;
             // background-position-x: 106%;
             padding-top: 150px;
             background-size: 568px;
+        }
+
+        @include mix.tablet {
+            background-size: 260px;
         }
     }
 
@@ -71,18 +84,30 @@
         width: 460px;
         height: 322px;
         margin-top: 163px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             margin: 0 auto;
+        }
+        @include mix.tablet {
+            width: 300px;
         }
     }
 
     &__title {
         width: 310px;
         margin-bottom: 42px;
+        @include mix.tablet {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         height: 1165px;
+    }
+
+    @include mix.tablet {
+        height: 823px;
     }
 }
 
@@ -95,26 +120,59 @@
         justify-content: center;
         align-items: center;
         gap: 120px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             flex-direction: column-reverse;
             gap: 80px;
             margin: 0 auto;
+        }
+        @include mix.tablet {
+            width: 300px;
+            justify-content: space-between;
+            height: 100%;
         }
     }
     &__content {
         width: 430px;
         height: 380px;
+        @include mix.tablet {
+            width: 300px;
+        }
     }
     &__title {
         width: 370px;
         margin-bottom: 25px;
+        @include mix.tablet {
+            width: 300px;
+            margin: 0 auto;
+        }
     }
     &__info:first-of-type {
         margin-bottom: 25px;
+        @include mix.tablet {
+            margin: 25px 15px 22px 15px;
+        }
     }
 
-    @include mix.desktop1279 {
+    &__info:last-of-type {
+        @include mix.tablet {
+            margin: 0px 15px 42px 15px;
+        }
+    }
+
+    &__img {
+        @include mix.tablet {
+            width: 260px;
+        }
+    }
+
+    @include mix.laptop {
         height: 1048px;
+    }
+
+    @include mix.tablet {
+        height: 974px;
+        padding-top: 42px;
+        padding-bottom: 42px;
     }
 }
 
@@ -129,23 +187,58 @@
         justify-content: center;
         align-items: center;
         gap: 60px;
+        @include mix.tablet {
+            gap: 42px;
+        }
     }
 
     &__title {
         width: 400px;
+        @include mix.tablet {
+            width: 300px;
+            margin: 0 auto;
+        }
     }
 
-    &__items-wrapper {
+    &__items {
         display: flex;
         gap: 90px;
-        @include mix.desktop1279 {
+        position: relative;
+        transition: 0.3s all;
+        @include mix.laptop {
             gap: 40px;
+        }
+        @include mix.tablet {
+            order: -1;
+        }
+        &-wrapper {
+            width: 990px;
+            overflow: hidden;
+            @include mix.laptop {
+                width: 580px;
+            }
+            @include mix.tablet {
+                width: 270px;
+                order: -1;
+            }
         }
     }
 
     &__icon-arrow {
         width: 14px;
         height: 6px;
+    }
+
+    &__button-arrow:first-of-type {
+        @include mix.tablet {
+            margin-right: 60px;
+        }
+    }
+
+    @include mix.tablet {
+        height: 791px;
+        padding-top: 42px;
+        padding-bottom: 42px;
     }
 }
 
@@ -154,6 +247,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mix.tablet {
+        max-width: 270px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 .card {
@@ -164,18 +263,11 @@
     gap: 30px;
     transition: 0.5s;
     background-color: var.$color-light-s;
-
     &:hover {
         background-color: var.$color-light-xl;
         .card__button {
             background-color: var.$color-primary-light;
             border-color: var.$color-primary-light;
-        }
-    }
-
-    @include mix.desktop1279 {
-        &:nth-child(3){
-            display: none;
         }
     }
 }
@@ -195,6 +287,10 @@
 
     &__title {
         width: 308px;
+        @include mix.tablet {
+            width: 220px;
+            margin: 0 auto;
+        }
     }
 
     &__items-wrapper {
@@ -205,10 +301,17 @@
         row-gap: 55px;
         height: 281px;
         width: 1030px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             width: 630px;
-            height: 449px;
+            min-height: 449px;
             column-gap: 60px;
+        }
+        @include mix.tablet {
+            justify-content: flex-start;
+            width: 290px;
+            height: 555px;
+            column-gap: 30px;
+            row-gap: 30px;
         }
     }
 
@@ -218,18 +321,32 @@
         align-items: center;
         justify-content: space-between;
         height: 113px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             width: 170px;
+        }
+        @include mix.tablet {
+            width: 130px;
+            height: 87px;
         }
     }
 
     &__svg-image {
         width: 60px;
         height: 60px;
+        @include mix.tablet {
+            width: 50px;
+            height: 50px;
+        }
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         height: 779px;
+    }
+
+    @include mix.tablet {
+        height: 745px;
+        padding-top: 42px;
+        padding-bottom: 42px;
     }
 }
 
@@ -245,11 +362,14 @@
         display: flex;
         align-items: center;
         gap: 30px;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             flex-direction: column-reverse;
             justify-content: flex-end;
             width: 100%;
             gap: 60px;
+        }
+        @include mix.tablet {
+            gap: 42px;
         }
     }
 
@@ -259,14 +379,41 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        @include mix.tablet {
+            width: 300px;
+            margin: 0 auto;
+        }
     }
 
     &__title {
         width: 300px;
+        @include mix.tablet {
+            width: 300px;
+            margin: 0 auto;
+        }
     }
 
-    @include mix.desktop1279 {
+    &__img {
+        @include mix.tablet {
+            width: 260px;
+        }
+    }
+
+    &__info {
+        @include mix.tablet {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    @include mix.laptop {
         height: 783px;
+    }
+
+    @include mix.tablet {
+        height: 542px;
+        padding-top: 42px;
+        padding-bottom: 42px;
     }
 }
 
@@ -293,8 +440,10 @@
         width: 30px;
         height: 23px;
     }
-    &__card-number {
-        height: 23px;
+
+    @include mix.tablet {
+        width: 281px;
+        margin: 0 auto;
     }
 }
 
@@ -312,11 +461,19 @@
         background-image: url(../../assets/images/footer-puppy.png);
         background-repeat: no-repeat;
         background-position: right bottom;
-        @include mix.desktop1279 {
+        @include mix.laptop {
             background-position: center bottom;
             padding-top: 0px;
             gap: 60px;
             justify-content: center;
+        }
+
+        @include mix.tablet {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 40px;
+            background-size: 260px;
         }
     }
 
@@ -324,10 +481,14 @@
         display: flex;
         flex-direction: column;
         gap: 40px;
-        width: 278px;
+        width: 280px;
         svg {
             width: 40px;
             height: 32px;
+        }
+
+        @include mix.tablet {
+            align-items: center;
         }
     }
 
@@ -339,6 +500,16 @@
         svg {
             width: 22px;
             height: 32px;
+        }
+        @include mix.tablet {
+            align-items: center;
+            gap: 39px;
+        }
+    }
+
+    &__locations &__title {
+        @include mix.tablet {
+            width: 270px;
         }
     }
 
@@ -367,6 +538,11 @@
         width: 260px;
     }
 
+    &__boston-location,
+    &__london-location {
+        width: 100%;
+    }
+
     &__mail-link {
         width: 251px;
     }
@@ -383,8 +559,12 @@
         width: 179px;
     }
 
-    @include mix.desktop1279 {
+    @include mix.laptop {
         height: 639px;
         padding-top: 30px;
+    }
+
+    @include mix.tablet {
+        height: 809px;
     }
 }
